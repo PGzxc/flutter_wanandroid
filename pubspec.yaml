@@ -34,6 +34,16 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  #依赖项列表
+
+  #1-GetX 是Flutter 的一个超轻且强大的解决方案。项目地址：https://github.com/jonataslaw/getx
+  get:
+
+  #2-Logger 小型、易于使用且可扩展的打印漂亮的日志。项目地址：https://pub:flutter-io:cn/packages/logger
+  logger: ^1.1.0
+
+  ## 3-flutter_zoom_drawer，自定义抽屉效果。项目地址：https://pub.flutter-io.cn/packages/flutter_zoom_drawer
+  flutter_zoom_drawer: ^3.0.2
 
 dev_dependencies:
   flutter_test:
