@@ -7,9 +7,11 @@ import 'package:get/get_state_manager/src/simple/get_view.dart';
 /// 说明：
 
 class NavigationView extends GetView<NavigationController>{
+  const NavigationView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     //return Scaffold(appBar: AppBar(title: Text('Navigation'),),);
-    return Center(child: Text('Navigation'));
+    return const Center(child: Text('Navigation'));
   }
 }

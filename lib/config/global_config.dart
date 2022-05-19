@@ -1,12 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_wanandroid/config/get_config.dart';
-import 'package:flutter_wanandroid/pages/main/controllers/drawer_controller.dart';
-import 'package:flutter_wanandroid/utils/logger/logger_utils.dart';
-import 'package:flutter_zoom_drawer/config.dart';
 import 'package:get/get.dart';
-import '../utils/logger/logger_util.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Config {
   static const isDebug = true;
@@ -19,7 +15,10 @@ class Config {
         statusBarIconBrightness: Brightness.dark,
       ),
     );
+    ///Get配置
     await Get.putAsync(() => GetConfig().init());
-    Get.put(() => AppDrawerController());
+    //Get.put(() => AppDrawerController());
+    ///SharedPreference配置
+    //await Get.putAsync(()=>SharedPreferences.getInstance());
   }
 }

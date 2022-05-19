@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_wanandroid/i18n/i18n_keys.dart';
 import 'package:flutter_wanandroid/pages/main/controllers/drawer_controller.dart';
 import 'package:flutter_wanandroid/pages/main/controllers/main_controller.dart';
 import 'package:flutter_wanandroid/pages/main/views/body_view.dart';
+import 'package:flutter_wanandroid/routes/app_routes.dart';
 import 'package:get/get.dart';
 
 /// 日期：2022-05-16
@@ -15,21 +15,28 @@ class MainScreen extends GetView<AppDrawerController> {
   @override
   Widget build(BuildContext context) {
     MainController mainController=Get.find();
+    AppDrawerController controller= Get.put(AppDrawerController());
     return Obx(() =>Scaffold(
-      appBar:_buildAppBar(mainController) ,
-      body: BodyView(),
+      appBar:_buildAppBar(mainController,controller) ,
+      body: const BodyView(),
     ) ) ;
   }
 
-  PreferredSizeWidget? _buildAppBar(MainController mainController){
-    return  (mainController.currentTitle==Keys.me)? null :AppBar(
+  PreferredSizeWidget? _buildAppBar(MainController mainController,AppDrawerController controller){
+    return  (mainController.currentPage==4)? AppBar(
       elevation: 4.0,
-      title: Obx(()=>Text("${mainController.currentTitle}", style: TextStyle(color: Colors.black),)) ,
-      backgroundColor: Colors.white,
-      leading: IconButton(icon: const Icon(Icons.menu, color: Colors.black,), onPressed: ()=> controller.toggleDrawer()),
+      leading: IconButton(icon: const Icon(Icons.menu), onPressed: ()=> controller.toggleDrawer()),
       actions: [IconButton(
-        icon: const Icon(Icons.search, color: Colors.black,),
-        onPressed: () {print('leading.....${controller}');},
+        icon: const Icon(Icons.settings),
+        onPressed: () {Get.toNamed(Routes.setting);},
+      )],
+    ) :AppBar(
+      elevation: 4.0,
+      title: Obx(()=>Text("${mainController.currentTitle}")) ,
+      leading: IconButton(icon: const Icon(Icons.menu), onPressed: ()=> controller.toggleDrawer()),
+      actions: [IconButton(
+        icon: const Icon(Icons.search),
+        onPressed: () {},
       )],
     );
   }

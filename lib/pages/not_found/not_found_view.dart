@@ -6,6 +6,8 @@ import 'package:get/get.dart';
 /// 说明：点击按钮返回到主页
 
 class NotFound extends StatelessWidget {
+  const NotFound({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

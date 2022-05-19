@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
 import '../utils/logger/logger_util.dart';
 
 class GetConfig extends GetxService{
@@ -17,12 +16,8 @@ class GetConfig extends GetxService{
     const GetMaterialApp(
       debugShowCheckedModeBanner: false,
     );
+    await Get.putAsync(()=>SharedPreferences.getInstance());
     return this;
-  }
-
-  @override
-  void onInit(){
-    super.onInit();
   }
 
   void localLogWriter(String text, {bool isError = false}) {

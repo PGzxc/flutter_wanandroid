@@ -1,11 +1,23 @@
 import 'package:flutter_wanandroid/i18n/i18n_keys.dart';
 
 class I18nEn {
-  static const enKey='en_US';
+  static const enKey = 'en_US';
   static const Map<String, String> enValues = {
     Keys.home: 'Home',
     Keys.tree: 'Tree',
     Keys.navigation: 'Navigation',
-    Keys.me: 'Me'
+    Keys.project: 'Project',
+    Keys.me: 'Me',
+    Keys.theme: 'Theme',
+    Keys.language: 'Language',
+    Keys.logout: 'Logout',
+    Keys.systemMode: 'System Mode',
+    Keys.simpleChinese: 'Simple Chinese',
+    Keys.usEnglish: 'US',
+    Keys.lightTheme: 'Light Theme',
+    Keys.darkTheme: 'Dark Theme',
+    Keys.accountSafe:'Account Safe',
+    Keys.personInfo:'Person Info',
+    Keys.setting:'Setting',
   };
 }

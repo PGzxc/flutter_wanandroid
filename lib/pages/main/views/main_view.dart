@@ -11,13 +11,14 @@ import 'package:get/get.dart';
 /// 说明：包含：MainScreen(主屏页面)+MenuScreen(抽屉页面)
 
 class MainView extends GetView<AppDrawerController> {
+  const MainView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GetBuilder<AppDrawerController>(
       builder: (_) => ZoomDrawer(
-        style: DrawerStyle.defaultStyle,
-        moveMenuScreen: true,
+        style: DrawerStyle.style3,
+        moveMenuScreen: false,
         controller: _.zoomDrawerController,
         menuScreen: const MenuScreen(),
         mainScreen: const MainScreen(),
@@ -27,7 +28,7 @@ class MainView extends GetView<AppDrawerController> {
         drawerShadowsBackgroundColor: Colors.white,
         slideWidth: MediaQuery.of(context).size.width * 0.85,
         openCurve: Curves.fastOutSlowIn,
-        closeCurve: Curves.bounceIn,
+        closeCurve: Curves.elasticOut,
       ),
     );
   }

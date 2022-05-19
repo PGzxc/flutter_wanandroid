@@ -7,9 +7,11 @@ import 'package:get/get_state_manager/src/simple/get_view.dart';
 /// 说明：
 
 class TreeView extends GetView<TreeController> {
+  const TreeView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     //return Scaffold(appBar: AppBar(title: Text('Tree'),),);
-    return Center(child: Text('Tree'));
+    return const Center(child: Text('Tree'));
   }
 }

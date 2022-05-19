@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_wanandroid/i18n/i18n_keys.dart';
+import 'package:flutter_wanandroid/res/app_theme.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
 import '../controllers/drawer_controller.dart';
 
@@ -11,13 +15,14 @@ class MenuScreen extends GetView<AppDrawerController> {
 
   @override
   Widget build(BuildContext context) {
+    AppDrawerController controller = Get.put(AppDrawerController());
     return Container(
-      color: Colors.white,
-      child: _buildDrawerView(),
+      color: context.scaffoldBackgroundColor,
+      child: _buildDrawerView(controller),
     );
   }
 
-  Widget _buildDrawerView() {
+  Widget _buildDrawerView(AppDrawerController controller) {
     return GestureDetector(
         child: ListView(padding: const EdgeInsets.all(0.0), children: <Widget>[
       UserAccountsDrawerHeader(
@@ -27,28 +32,35 @@ class MenuScreen extends GetView<AppDrawerController> {
           child: Icon(Icons.person),
         ),
         onDetailsPressed: () {},
-        otherAccountsPictures: const <Widget>[
-          CircleAvatar(child: Icon(Icons.star)),
-        ],
+        arrowColor: Colors.transparent,
+        //otherAccountsPictures: const <Widget>[CircleAvatar(child: Icon(Icons.star)),],
         decoration: const BoxDecoration(color: Colors.green),
       ),
       ListTile(
-        leading: const Icon(Icons.add_moderator_outlined,),
+        leading: const Icon(
+          Icons.add_moderator_outlined,
+        ),
         trailing: const Icon(Icons.arrow_forward_ios),
-        title: const Text('账号安全'),
-        onTap: () {controller.toggleDrawer();},
+        title: Text(Keys.accountSafe.tr),
+        onTap: () {
+          controller.toggleDrawer();
+        },
       ),
       ListTile(
-        onTap: () {controller.toggleDrawer();},
-        title: Text('个人信息'),
-        leading: Icon(Icons.account_circle_outlined),
-        trailing: Icon(Icons.arrow_forward_ios),
+        onTap: () {
+          controller.toggleDrawer();
+        },
+        title: Text(Keys.personInfo.tr),
+        leading: const Icon(Icons.account_circle_outlined),
+        trailing: const Icon(Icons.arrow_forward_ios),
       ),
       ListTile(
-          onTap: () {controller.toggleDrawer();},
-          title: Text('设置'),
-          leading: Icon(Icons.settings),
-          trailing: Icon(Icons.arrow_forward_ios)),
+          onTap: () {
+            controller.toggleDrawer();
+          },
+          title: Text(Keys.setting.tr),
+          leading: const Icon(Icons.settings),
+          trailing: const Icon(Icons.arrow_forward_ios)),
     ]));
   }
 }

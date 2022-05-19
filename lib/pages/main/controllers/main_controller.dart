@@ -122,11 +122,11 @@ class MainController extends GetxController {
       ),
     ];
     tabPageBodies = <Widget>[
-      HomeView(),
-      TreeView(),
-      NavigationView(),
-      ProjectView(),
-      MeView(),
+      const HomeView(),
+      const TreeView(),
+      const NavigationView(),
+      const ProjectView(),
+      const MeView(),
     ];
   }
 

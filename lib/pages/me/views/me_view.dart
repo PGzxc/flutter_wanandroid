@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_wanandroid/pages/me/controllers/me_controller.dart';
-import 'package:flutter_wanandroid/pages/navigation/controllers/navigation_controller.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
 
 
@@ -9,9 +8,12 @@ import 'package:get/get_state_manager/src/simple/get_view.dart';
 /// 说明：
 
 class MeView extends GetView<MeController>{
+
+  const MeView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
    // return Scaffold(appBar: AppBar(title: Text('Me'),),);
-    return Center(child: Text('me'));
+    return const Center(child: Text('me'));
   }
 }

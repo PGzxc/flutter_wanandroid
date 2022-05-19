@@ -19,10 +19,16 @@
 * 抽屉显示快捷信息
 * BottomBar：显示导航信息
 
+### v2.0
+* 添加设置页面
+* 添加切换主题和语言功能
+* 添加shared_preferences后直接运行会出错，通过flutter run指令运行
+
 ## 五 开源库
 * Getx:https://github.com/jonataslaw/getx
 * logger: https://pub:flutter-io:cn/packages/logger
 * flutter_zoom_drawer:https://pub.flutter-io.cn/packages/flutter_zoom_drawer
+* shared_preferences：https://pub.flutter-io.cn/packages/shared_preferences
 
 
 
