@@ -21,7 +21,46 @@ abstract class Keys {
   static const String usEnglish = 'us';
 
   ///Menu
-  static const String accountSafe = 'accountSafe';
-  static const String personInfo = 'personInfo';
-  static const String setting = 'setting';
+  static const String menuUnLogin='unLogin';
+  static const String menuTodoList = 'todoList';
+  static const String menuUnreadMsg = 'unreadMsg';
+  static const String menuWenDa = 'WenDa';
+
+  ///登陆与注册
+  static const String welcomeLoginContent = 'welcomeLoginContent';
+  static const String welcomeRegisterContent = 'welcomeRegisterContent';
+  static const String loginContent = 'loginContent';
+  static const String registerContent = 'registerContent';
+  static const String logoutContent = 'logoutContent';
+
+  static const String editUserNameHint = 'editUserNameHint';
+  static const String editPasswordHint = 'editPasswordHint';
+  static const String editEnsurePasswordHint = 'editEnsurePasswordHint';
+  static const String switchButtonLoginDesc = 'switchButtonLoginDesc';
+  static const String switchButtonRegisterDesc = 'switchButtonRegisterDesc';
+  static const String loginRegisterInfo = 'loginRegisterInfo';
+  static const String userNameEmptyInfo = 'userNameEmptyInfo';
+  static const String passwordEmptyInfo = 'passwordEmptyInfo';
+  static const String ensurePasswordEmptyInfo = 'ensurePasswordEmptyInfo';
+  static const String ensurePasswordFail = 'ensurePasswordFail';
+
+  ///Me-信息
+  static const String meLevel = 'meLevel';
+  static const String meRank = 'meRank';
+  static const String meCollect = 'meCollect';
+  static const String meCoin = 'meCoin';
+
+  static const String meUnLoginTitle='UnLoginTitle';
+  static const String meLoginTitle='LoginTitle';
+  static const String meCommonTools='CommonTools';
+  static const String meTools='Tools';
+  static const String meQA='QA';
+  static const String meMsg='Message';
+  static const String meCourse='Course';
+  static const String meToDo='ToDo';
+  static const String meShareArticle='shareArticle';
+  static const String meShareProject='shareProject';
+  static const String meWechat='wechat';
+
+
 }

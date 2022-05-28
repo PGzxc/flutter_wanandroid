@@ -1,25 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_wanandroid/i18n/i18n_keys.dart';
 import 'package:flutter_wanandroid/pages/home/views/home_view.dart';
 import 'package:flutter_wanandroid/pages/me/views/me_view.dart';
 import 'package:flutter_wanandroid/pages/navigation/views/navigation_view.dart';
 import 'package:flutter_wanandroid/pages/project/views/project_view.dart';
 import 'package:flutter_wanandroid/pages/tree/views/tree_view.dart';
+import 'package:flutter_wanandroid/provider/base_controller.dart';
+import 'package:flutter_wanandroid/widgets/keep_alive_wrapper.dart';
 import 'package:get/get.dart';
 
+import '../../../utils/cookie_utils.dart';
 import '../../../utils/logger/logger_util.dart';
+import '../../login_register/utils/login_register_utils.dart';
 import '../../me/controllers/me_controller.dart';
 
 /// 日期：2022-05-16
 /// 描述：主页-主屏页面-Bod控制器
 /// 说明：包含：MainScreen(主屏页面)+MenuScreen(抽屉页面)
 
-class MainController extends GetxController {
+class MainController extends BaseController {
   /// 响应式成员变量，默认位置指引0
   final _currentPage = 0.obs;
   set currentPage(index) => _currentPage.value = index;
   get currentPage => _currentPage.value;
-
 
   final _currentTitle = Keys.home.tr.obs;
   set currentTitle(index) => _currentTitle.value = bottomTabs[index].label!;
@@ -45,6 +49,10 @@ class MainController extends GetxController {
   void onPageChanged(int index) {
     currentPage = index;
     currentTitle = index;
+    // if (LoginRegisterUtils().isLogin && currentTitle == Keys.me) {
+    //   MeController meController=Get.find<MeController>();
+    //   meController.getUserInfo();
+    // }
   }
 
   /// 生命周期
@@ -122,11 +130,19 @@ class MainController extends GetxController {
       ),
     ];
     tabPageBodies = <Widget>[
-      const HomeView(),
-      const TreeView(),
-      const NavigationView(),
-      const ProjectView(),
-      const MeView(),
+      ///没有缓存时使用
+      // const HomeView(),
+      // const TreeView(),
+      // const NavigationView(),
+      // const ProjectView(),
+      // const MeView(),
+
+      ///使用了可滚动组件的页面缓存之后，使用KeepAliveWrapper包裹组件
+      const KeepAliveWrapper(keepAlive: true, child: HomeView()),
+      const KeepAliveWrapper(keepAlive: true, child: TreeView()),
+      const KeepAliveWrapper(keepAlive: true, child: NavigationView()),
+      const KeepAliveWrapper(keepAlive: true, child: ProjectView()),
+      const KeepAliveWrapper(keepAlive: false, child: MeView()),
     ];
   }
 
@@ -136,7 +152,7 @@ class MainController extends GetxController {
   void onReady() {
     super.onReady();
     // async 拉取数据
-    LoggerUtil.d('onReady()', tag: 'IndexController');
+    LoggerUtil.d('onReady()', tag: 'MainController');
   }
 
   ///在 [onDelete] 方法之前调用。 [onClose] 可能用于
@@ -150,7 +166,7 @@ class MainController extends GetxController {
     super.onClose();
     // 1 stop & close 关闭对象
     // 2 save 持久化数据
-    LoggerUtil.d('onClose()', tag: 'IndexController');
+    LoggerUtil.d('onClose()', tag: 'MainController');
   }
 
   ///dispose 释放内存
@@ -159,6 +175,27 @@ class MainController extends GetxController {
     // dispose释放对象
     pageController.dispose();
     super.dispose();
-    LoggerUtil.d('dispose()', tag: 'IndexController');
+    LoggerUtil.d('dispose()', tag: 'MainController');
+  }
+
+  ///退出登陆
+  void logout() {
+    EasyLoading.show(status: '加载中...');
+    provider.logout().then((value) {
+      if (value.success) {
+        EasyLoading.showSuccess('退出成功');
+
+        ///清除Cookie
+        CookieUtils.clearCookie();
+
+        ///清除用户名和密码
+        LoginRegisterUtils.clearUserInfo();
+
+        Get.back();
+      } else {
+        EasyLoading.showError('退出出错:${value.errorMsg}');
+      }
+      EasyLoading.dismiss();
+    });
   }
 }

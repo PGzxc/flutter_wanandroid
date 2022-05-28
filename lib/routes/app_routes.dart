@@ -6,6 +6,8 @@ abstract class Routes{
   static const setting='setting';
   static const theme='theme';
   static const language='language';
+  static const loginRegister='loginRegister';
+  static const coin='coin';
 
 }
 extension RoutesExtension on String{

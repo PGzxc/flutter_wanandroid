@@ -40,6 +40,9 @@ class Gaps {
   static const Widget vGap100 = SizedBox(height: Dimens.gapDp100);
   static const Widget vGap150 = SizedBox(height: Dimens.gapDp150);
 
+  ///带分割线的竖线
+  static const Widget dividerV=Divider(thickness: 1,color: Colors.grey);
+  
 //  static Widget line = const SizedBox(
 //    height: 0.6,
 //    width: double.infinity,

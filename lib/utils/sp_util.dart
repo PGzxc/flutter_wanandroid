@@ -7,8 +7,6 @@ class SpUtil {
   ///获取global_config中配置到SharedPreferences
   static SharedPreferences getSharedPreferences() {
     SharedPreferences sharedPreferences = Get.find<SharedPreferences>();
-    LoggerUtil.d(
-        'languageList1 sharedPreferences-------------------: ${sharedPreferences}');
     return sharedPreferences;
   }
 
@@ -57,8 +55,13 @@ class SpUtil {
         res = prefs.getStringList(key) as T?;
         break;
     }
-    LoggerUtil.d(
-        'languageList1 res=============: ${res}');
+    LoggerUtil.d('res=============: ${res}');
     return res;
+  }
+
+  ///清除数据
+  static void clearData(String key) {
+    SharedPreferences prefs = getSharedPreferences();
+    prefs.remove(key);
   }
 }

@@ -13,9 +13,6 @@ class GetConfig extends GetxService{
       defaultTransition: Transition.leftToRightWithFade,
       logWriterCallback: localLogWriter,
     );
-    const GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-    );
     await Get.putAsync(()=>SharedPreferences.getInstance());
     return this;
   }

@@ -6,6 +6,7 @@ import 'app_color.dart';
 
 ///白天模式
 ThemeData lightTheme = ThemeData.light().copyWith(
+  useMaterial3: true,
   primaryColor: Colors.blue,
   splashColor: Colors.white12,
   appBarTheme: AppBarTheme(
@@ -43,6 +44,7 @@ ThemeData lightTheme = ThemeData.light().copyWith(
 
 ///夜间模式
 ThemeData darkTheme = ThemeData.dark().copyWith(
+  useMaterial3: true,
   primaryColor: Colors.black12,
   appBarTheme: AppBarTheme(
     systemOverlayStyle: SystemUiOverlayStyle.light,

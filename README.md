@@ -22,13 +22,26 @@
 ### v2.0
 * 添加设置页面
 * 添加切换主题和语言功能
-* 添加shared_preferences后直接运行会出错，通过flutter run指令运行
+* 添加shared_preferences工具库
+
+### v3.0
+* 使用GetConnect搭建网络访问框架，使用baseResponse进行结果解析
+* 接口返回的结果，使用https://caijinglong.github.io/json2dart/index.html快速生成，放到models包中
+* 登陆注册界面及功能完成
+* 登陆/注册之后的Cookie数据保存到SharedPreference中，在接口请求前，读取SharedPreference中到Cookie数据
+* 导入google的UI Kit工具库
+* 删除之前到flutter_zoom_drawer，使用google自带的drawer
+* 列表项需要缓存，只需要使用 KeepAliveWrapper包裹，防止多次加载
 
 ## 五 开源库
 * Getx:https://github.com/jonataslaw/getx
 * logger: https://pub:flutter-io:cn/packages/logger
 * flutter_zoom_drawer:https://pub.flutter-io.cn/packages/flutter_zoom_drawer
 * shared_preferences：https://pub.flutter-io.cn/packages/shared_preferences
+* connectivity_plus：https://pub.flutter-io.cn/packages/connectivity_plus
+* json_annotation、json_serializable、build_runner：
+* flutter_easyloading：https://pub.flutter-io.cn/packages/flutter_easyloading
+* getwidget：https://pub.flutter-io.cn/packages/getwidget
 
 
 

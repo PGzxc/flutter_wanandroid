@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_wanandroid/config/global_config.dart';
 import 'package:flutter_wanandroid/pages/language/utils/language_util.dart';
 import 'package:flutter_wanandroid/pages/theme/utils/theme_util.dart';
@@ -17,7 +18,6 @@ Future<void> main() async {
   await Config.init();
   runApp(GetMaterialApp(
     debugShowCheckedModeBanner: false,
-
     unknownRoute: AppPages.unknownRoute,
     initialRoute: AppPages.init,
     getPages: AppPages.routes,
@@ -26,10 +26,12 @@ Future<void> main() async {
     theme: ThemeUtil.getThemeModel(),
     darkTheme: darkTheme,
     themeMode: ThemeMode.light,
-
+    ///EasyLoading
+    builder: EasyLoading.init(),
     ///语言
     translations: Message(),
     //默认语言
     locale: LanguageUtil.getDefaultLocale(),
   ));
+
 }

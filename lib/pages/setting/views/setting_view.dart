@@ -45,7 +45,7 @@ class SettingView extends GetView<SettingController> {
                 title: Keys.logout.tr,
                 isShowLeftWidget: true,
                 leftWidget: const Icon(Icons.logout),
-                onTap: () => {},
+                onTap: () => {controller.logout()},
               ),
             ),
           ],

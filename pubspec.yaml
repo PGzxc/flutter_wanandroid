@@ -33,19 +33,25 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
+  cupertino_icons: ^1.0.4
   #依赖项列表
 
   #1-GetX 是Flutter 的一个超轻且强大的解决方案。项目地址：https://github.com/jonataslaw/getx
-  get:
-
+  get: ^4.6.5
   #2-Logger 小型、易于使用且可扩展的打印漂亮的日志。项目地址：https://pub:flutter-io:cn/packages/logger
   logger: ^1.1.0
-
-  ## 3-flutter_zoom_drawer，自定义抽屉效果。项目地址：https://pub.flutter-io.cn/packages/flutter_zoom_drawer
-  flutter_zoom_drawer: ^3.0.2
-  ## 4-shared_preferences，简单数据持久化存储。项目地址：https://pub.flutter-io.cn/packages/shared_preferences
+  # 3-flutter_zoom_drawer，自定义抽屉效果。项目地址：https://pub.flutter-io.cn/packages/flutter_zoom_drawer
+  #flutter_zoom_drawer: ^3.0.2 ///使用自带的drawer-参考google-getwidget
+  # 4-shared_preferences，简单数据持久化存储。项目地址：https://pub.flutter-io.cn/packages/shared_preferences
   shared_preferences: ^2.0.15
+  # 5-connectivity_plus: 网络连接工具。项目地址：https://pub.flutter-io.cn/packages/connectivity_plus
+  connectivity_plus: ^2.3.0
+  # 6-:用于数据序列化时使用(给数据类添加注解)，项目地址：https://pub.flutter-io.cn/packages/json_annotation
+  json_annotation: ^4.5.0
+  #7-flutter_easyloading:加载对话框。项目地址：https://pub.flutter-io.cn/packages/flutter_easyloading
+  flutter_easyloading: ^3.0.5
+  #8-getwidget：google开源的UI Kit工具库，包含1000多个Widget组件。简化开发流程。项目地址：https://pub.flutter-io.cn/packages/getwidget
+  getwidget: ^2.0.5
 
 dev_dependencies:
   flutter_test:
@@ -57,6 +63,10 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+  # 1-json_serializable：项目序列化时使用(注解标识)。项目地址：https://pub.flutter-io.cn/packages/json_serializable
+  json_serializable: ^6.2.0
+  #2-build_runner：项目序列化时使用(遇到注解标识，生成对应.g.dart)。项目地址：https://pub.flutter-io.cn/packages/build_runner/install
+  build_runner: ^2.1.11
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

@@ -1,3 +1,7 @@
+import 'package:flutter_wanandroid/pages/coin/bindings/coin_bindings.dart';
+import 'package:flutter_wanandroid/pages/coin/views/coin_view.dart';
+import 'package:flutter_wanandroid/pages/login_register/bindings/login_register_binding.dart';
+import 'package:flutter_wanandroid/pages/login_register/views/login_register_view.dart';
 import 'package:flutter_wanandroid/pages/main/bindings/main_binding.dart';
 import 'package:flutter_wanandroid/pages/main/views/main_view.dart';
 import 'package:flutter_wanandroid/pages/setting/bindings/setting_binding.dart';
@@ -48,5 +52,19 @@ class AppPages {
         page: () => const LanguageView(),
         title: 'Language',
         binding: LanguageBinding()),
+
+    ///登陆-注册
+    GetPage(
+        name: Routes.loginRegister.nameToRoute(),
+        page: () => LoginRegisterView(),
+        title: 'LoginRegister',
+        binding: LoginRegisterBinding()),
+
+    ///金币
+    // GetPage(
+    //     name: Routes.coin.nameToRoute(),
+    //     page: () => CoinView(),
+    //     title: 'Coin',
+    //     binding: CoinBindings()),
   ];
 }
