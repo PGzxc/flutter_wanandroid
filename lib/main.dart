@@ -7,6 +7,7 @@ import 'package:flutter_wanandroid/res/app_theme.dart';
 import 'package:flutter_wanandroid/routes/app_pages.dart';
 import 'package:get/get.dart';
 import 'package:get/route_manager.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import 'i18n/i18n_message.dart';
 
@@ -16,22 +17,25 @@ import 'i18n/i18n_message.dart';
 
 Future<void> main() async {
   await Config.init();
-  runApp(GetMaterialApp(
-    debugShowCheckedModeBanner: false,
-    unknownRoute: AppPages.unknownRoute,
-    initialRoute: AppPages.init,
-    getPages: AppPages.routes,
+  runApp(RefreshConfiguration(
+      hideFooterWhenNotFull: false,
+      child: GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        unknownRoute: AppPages.unknownRoute,
+        initialRoute: AppPages.init,
+        getPages: AppPages.routes,
 
-    ///主题设置
-    theme: ThemeUtil.getThemeModel(),
-    darkTheme: darkTheme,
-    themeMode: ThemeMode.light,
-    ///EasyLoading
-    builder: EasyLoading.init(),
-    ///语言
-    translations: Message(),
-    //默认语言
-    locale: LanguageUtil.getDefaultLocale(),
-  ));
+        ///主题设置
+        theme: ThemeUtil.getThemeModel(),
+        darkTheme: darkTheme,
+        themeMode: ThemeMode.light,
 
+        ///EasyLoading
+        builder: EasyLoading.init(),
+
+        ///语言
+        translations: Message(),
+        //默认语言
+        locale: LanguageUtil.getDefaultLocale(),
+      )));
 }

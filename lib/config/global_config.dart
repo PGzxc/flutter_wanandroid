@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_wanandroid/config/api_provider_config.dart';
 import 'package:flutter_wanandroid/config/get_config.dart';
 import 'package:flutter_wanandroid/pages/login_register/utils/login_register_utils.dart';
 import 'package:flutter_wanandroid/provider/base_controller.dart';
 import 'package:get/get.dart';
-
-import '../pages/theme/utils/theme_util.dart';
 
 class Config {
   static const isDebug = true;
@@ -25,9 +22,13 @@ class Config {
     await Get.putAsync(() => GetConfig().init());
     await Get.putAsync(() => APIProviderConfig().init());
 
+    ///配置登陆成功与否到控制器和判断依据
+    BaseController baseController = Get.put(BaseController());
+    baseController.isLogin = LoginRegisterUtils.getUserInfo() != null;
+
     ///是否登陆-用于退出重新进入时判断是否登陆
-    LoginRegisterUtils().isLogin = LoginRegisterUtils.getUserInfo() != null;
-    //BaseController().isLogin=LoginRegisterUtils.getUserInfo()!=null;
+    //LoginRegisterUtils().isLogin = LoginRegisterUtils.getUserInfo() != null;
+
 
     ///配置EasyLoading
     // EasyLoading.instance
@@ -46,5 +47,4 @@ class Config {
     //   ..userInteractions = true
     //   ..dismissOnTap = false;
   }
-
 }

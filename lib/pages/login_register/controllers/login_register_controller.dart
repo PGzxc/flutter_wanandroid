@@ -3,10 +3,10 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_wanandroid/i18n/i18n_keys.dart';
 import 'package:flutter_wanandroid/models/login_register_response.dart';
 import 'package:flutter_wanandroid/pages/login_register/utils/login_register_utils.dart';
-import 'package:flutter_wanandroid/pages/me/controllers/me_controller.dart';
 import 'package:flutter_wanandroid/provider/base_controller.dart';
 import 'package:get/get.dart';
-
+import '../../../provider/request_api.dart';
+import '../../../res/constant.dart';
 import '../../../utils/keyboard_util.dart';
 
 enum ButtonType { login, register }
@@ -19,43 +19,31 @@ class LoginRegisterController extends BaseController<UserInfo> {
 
   /// 登录注册类型
   final _buttonType = ButtonType.login.obs;
-
   get buttonType => _buttonType.value;
-
   set buttonType(value) => _buttonType.value = value;
 
   /// 登录注册按钮描述语
   final _switchButtonTypeDesc = Keys.switchButtonRegisterDesc.tr.obs;
-
   get switchButtonTypeDesc => _switchButtonTypeDesc.value;
-
   set switchButtonTypeDesc(value) => _switchButtonTypeDesc.value = value;
 
   final _buttonTypeDesc = Keys.loginContent.tr.obs;
-
   get buttonTypeDesc => _buttonTypeDesc.value;
-
   set buttonTypeDesc(value) => _buttonTypeDesc.value = value;
 
   /// 用户名
   final _userName = "".obs;
-
   get userName => _userName.value;
-
   set userName(value) => _userName.value = value;
 
   /// 密码
   final _password = "".obs;
-
   get password => _password.value;
-
   set password(value) => _password.value = value;
 
   /// 确认密码
   final _ensurePassword = "".obs;
-
   get ensurePassword => _ensurePassword.value;
-
   set ensurePassword(value) => _ensurePassword.value = value;
 
   late final TextEditingController textEditingControllerUserName;
@@ -143,62 +131,28 @@ class LoginRegisterController extends BaseController<UserInfo> {
       "repassword": ensurePassword.toString().trim(),
     };
 
-    EasyLoading.show(status: '加载中...');
+    String requestUrl =
+        buttonType == ButtonType.login ? RequestAPI.login : RequestAPI.register;
 
-    ///调用接口
-    provider.loginRegister(buttonType.toString(), buttonType == ButtonType.login ? paramsLogin : paramsRegister)
-        .then((value) {
-      if (value.success) {
-        ///保存用户数据
-        UserInfo data = UserInfo.fromJson((value.data));
-        LoginRegisterUtils.saveUserInfo(data);
-        EasyLoading.showSuccess('登陆成功');
-        MeController meController=Get.find();
-        meController.onInit();
-        Get.back();
-      } else {
-        EasyLoading.showError('登陆出错:${value.errorMsg}');
-      }
-      EasyLoading.dismiss();
-    });
-  }
+    Map<String, dynamic>? requestParams =
+        buttonType == ButtonType.login ? paramsLogin : paramsRegister;
 
-  //登陆按钮点击事件
-  login(TextEditingController userNameController,
-      TextEditingController passWordController) {
-    var userName = userNameController.text;
-    var passWord = passWordController.text;
-
-    //1-用户协议是否勾选
-    // if (!isChecked.value) {
-    //   Get.snackbar('用户协议未选中', '请勾选用户协议', snackPosition: SnackPosition.BOTTOM);
-    //   return;
-    // }
-    //2-用户名判断
-    if (userName.isEmpty) {
-      Get.snackbar('用户名异常', '用户名为空', snackPosition: SnackPosition.BOTTOM);
-      return;
-    }
-    //3-密码判断
-    if (passWord.isEmpty) {
-      Get.snackbar('密码异常', '密码为空', snackPosition: SnackPosition.BOTTOM);
-      return;
-    }
-    var loginMap = {
-      "username": userName.toString().trim(),
-      "password": passWord.toString().trim(),
-    };
-    provider.loginRegister('login', loginMap).then((value) {
-      //change(null, status: RxStatus.loading());
-      if (value.success) {
-        ///保存用户数据
-        UserInfo data = UserInfo.fromJson((value.data));
-        LoginRegisterUtils.saveUserInfo(data);
-        Get.back();
-      } else {
-        //change(null, status: RxStatus.error());
-      }
-    });
+    httpManager(
+        loadingType: Constant.showLoadingDialog,
+        future: provider.post(requestUrl, null, query: requestParams),
+        onSuccess: (value) {
+          ///保存用户数据
+          UserInfo data = UserInfo.fromJson((value));
+          LoginRegisterUtils.saveUserInfo(data);
+          isLogin=true;///isLogin放到saveUserInfo的后面，否则出现问题
+          Get.back();
+        },
+        onFail: (response) {
+          EasyLoading.showError('${Keys.loginFail.tr} \n ${response.errorMsg}');
+        },
+        onError: (response) {
+          EasyLoading.showError('${Keys.loginFail.tr} \n ${response.errorMsg}');
+        });
   }
 
   //用户协议勾选事件

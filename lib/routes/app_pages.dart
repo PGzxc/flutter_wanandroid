@@ -1,9 +1,16 @@
-import 'package:flutter_wanandroid/pages/coin/bindings/coin_bindings.dart';
+import 'package:flutter_wanandroid/pages/coin/bindings/coin_binding.dart';
 import 'package:flutter_wanandroid/pages/coin/views/coin_view.dart';
+import 'package:flutter_wanandroid/pages/coin_list/bindings/coin_list_binding.dart';
+import 'package:flutter_wanandroid/pages/coin_list/views/coin_list_view.dart';
+import 'package:flutter_wanandroid/pages/coin_rank/bindings/coin_rank_binding.dart';
+import 'package:flutter_wanandroid/pages/coin_rank/views/coin_rank_view.dart';
 import 'package:flutter_wanandroid/pages/login_register/bindings/login_register_binding.dart';
 import 'package:flutter_wanandroid/pages/login_register/views/login_register_view.dart';
 import 'package:flutter_wanandroid/pages/main/bindings/main_binding.dart';
 import 'package:flutter_wanandroid/pages/main/views/main_view.dart';
+import 'package:flutter_wanandroid/pages/me/bindings/me_binding.dart';
+import 'package:flutter_wanandroid/pages/me/controllers/me_controller.dart';
+import 'package:flutter_wanandroid/pages/me/views/me_view.dart';
 import 'package:flutter_wanandroid/pages/setting/bindings/setting_binding.dart';
 import 'package:flutter_wanandroid/pages/setting/views/setting_view.dart';
 import 'package:flutter_wanandroid/routes/app_routes.dart';
@@ -29,36 +36,50 @@ class AppPages {
     GetPage(
         name: Routes.main.nameToRoute(),
         page: () => const MainView(),
-        title: 'Main',
+        title: Routes.main,
         binding: MainBinding()),
 
     ///设置页面
     GetPage(
         name: Routes.setting.nameToRoute(),
         page: () => const SettingView(),
-        title: 'Setting',
+        title: Routes.setting,
         binding: SettingBinding()),
 
     ///theme主题
     GetPage(
         name: Routes.theme.nameToRoute(),
         page: () => const ThemeView(),
-        title: 'Theme',
+        title: Routes.theme,
         binding: ThemeBinding()),
 
     ///Language-语言
     GetPage(
         name: Routes.language.nameToRoute(),
         page: () => const LanguageView(),
-        title: 'Language',
+        title: Routes.language,
         binding: LanguageBinding()),
 
     ///登陆-注册
     GetPage(
         name: Routes.loginRegister.nameToRoute(),
         page: () => LoginRegisterView(),
-        title: 'LoginRegister',
+        title: Routes.loginRegister,
         binding: LoginRegisterBinding()),
+
+    ///积分-列表
+    GetPage(
+        name: Routes.coinList.nameToRoute(),
+        page: () => const CoinListView(),
+        title: Routes.coinList,
+        binding: CoinListBinding()),
+
+    ///金币-排行榜
+    GetPage(
+        name: Routes.coinRank.nameToRoute(),
+        page: () => const CoinRankView(),
+        title: Routes.coinRank,
+        binding: CoinRankBinging()),
 
     ///金币
     // GetPage(

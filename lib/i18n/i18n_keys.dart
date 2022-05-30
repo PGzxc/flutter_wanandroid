@@ -32,6 +32,11 @@ abstract class Keys {
   static const String loginContent = 'loginContent';
   static const String registerContent = 'registerContent';
   static const String logoutContent = 'logoutContent';
+  static const String loginSuccess='loginSuccess';
+  static const String loginFail="loginFail";
+
+
+
 
   static const String editUserNameHint = 'editUserNameHint';
   static const String editPasswordHint = 'editPasswordHint';
@@ -61,6 +66,19 @@ abstract class Keys {
   static const String meShareArticle='shareArticle';
   static const String meShareProject='shareProject';
   static const String meWechat='wechat';
+
+  ///刷新
+ static const String clickRetry='clickRetry';
+ static const String loading='loading';
+ static const String noData='noData';
+ static const String pullToRefresh='pullToRefresh';
+ static const String refreshFailed='refreshFailed';
+ static const String refreshSuccess='refreshSuccess';
+ static const String releaseStartRefreshing='releaseStartRefreshing';
+ static const String pullToLoading='pullToLoading';
+ static const String releaseStartLoading='releaseStartLoading';
+ static const String noMoreData='noMoreData';
+ static const String loadFailed='loadFailed';
 
 
 }

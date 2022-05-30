@@ -1,31 +1,29 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'coin_user_list_response.dart';
+part of 'coin_list_response.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-CoinUserListResponse _$CoinUserListResponseFromJson(
-        Map<String, dynamic> json) =>
-    CoinUserListResponse(
-      Data.fromJson(json['data'] as Map<String, dynamic>),
+CoinListResponse _$CoinListResponseFromJson(Map<String, dynamic> json) =>
+    CoinListResponse(
+      CoinListData.fromJson(json['data'] as Map<String, dynamic>),
       json['errorCode'] as int,
       json['errorMsg'] as String,
     );
 
-Map<String, dynamic> _$CoinUserListResponseToJson(
-        CoinUserListResponse instance) =>
+Map<String, dynamic> _$CoinListResponseToJson(CoinListResponse instance) =>
     <String, dynamic>{
       'data': instance.data,
       'errorCode': instance.errorCode,
       'errorMsg': instance.errorMsg,
     };
 
-Data _$DataFromJson(Map<String, dynamic> json) => Data(
+CoinListData _$CoinListDataFromJson(Map<String, dynamic> json) => CoinListData(
       json['curPage'] as int,
       (json['datas'] as List<dynamic>)
-          .map((e) => Datas.fromJson(e as Map<String, dynamic>))
+          .map((e) => CoinData.fromJson(e as Map<String, dynamic>))
           .toList(),
       json['offset'] as int,
       json['over'] as bool,
@@ -34,7 +32,8 @@ Data _$DataFromJson(Map<String, dynamic> json) => Data(
       json['total'] as int,
     );
 
-Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
+Map<String, dynamic> _$CoinListDataToJson(CoinListData instance) =>
+    <String, dynamic>{
       'curPage': instance.curPage,
       'datas': instance.datas,
       'offset': instance.offset,
@@ -44,7 +43,7 @@ Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
       'total': instance.total,
     };
 
-Datas _$DatasFromJson(Map<String, dynamic> json) => Datas(
+CoinData _$CoinDataFromJson(Map<String, dynamic> json) => CoinData(
       json['coinCount'] as int,
       json['date'] as int,
       json['desc'] as String,
@@ -55,7 +54,7 @@ Datas _$DatasFromJson(Map<String, dynamic> json) => Datas(
       json['userName'] as String,
     );
 
-Map<String, dynamic> _$DatasToJson(Datas instance) => <String, dynamic>{
+Map<String, dynamic> _$CoinDataToJson(CoinData instance) => <String, dynamic>{
       'coinCount': instance.coinCount,
       'date': instance.date,
       'desc': instance.desc,

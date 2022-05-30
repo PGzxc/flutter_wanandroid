@@ -7,6 +7,8 @@ abstract class Routes{
   static const theme='theme';
   static const language='language';
   static const loginRegister='loginRegister';
+  static const coinRank='coinRank';
+  static const coinList='coinList';
   static const coin='coin';
 
 }

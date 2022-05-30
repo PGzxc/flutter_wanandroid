@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dimens.dart';
 
-
 /// 间隔
 /// 官方做法：https://github.com/flutter/flutter/pull/54394
 class Gaps {

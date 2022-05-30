@@ -290,7 +290,7 @@ abstract class RequestAPI {
   /// 方法: GET
   /// 参数：；
   ///******************************************************************/
-  static const String coinRank = '/coin/rank/index/json';
+  static const String coinRank = '/coin/rank/%s/json';
 
   /// **********************9.2 个人积分(需登陆) ******************************
   /// 示例：https://www.wanandroid.com/lg/coin/userinfo/json
@@ -302,9 +302,9 @@ abstract class RequestAPI {
   /// ******************9.3 获取个人积分获取列表，需要登录后访问 ****************
   /// 示例：https://www.wanandroid.com//lg/coin/list/1/json
   /// 方法: GET
-  /// 参数：；
+  /// 参数：；使用sprintf进行格式化赋值
   ///******************************************************************/
-  static const String coinList = '/lg/coin/list/index/json';
+  static const String coinList = '/lg/coin/list/%s/json';
 
   ///10-广场
 

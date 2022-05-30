@@ -28,6 +28,8 @@ class I18nEn {
     Keys.loginContent: "Login",
     Keys.registerContent: "Register",
     Keys.logoutContent: "Log out",
+    Keys.loginSuccess:"Login success!",
+    Keys.loginFail:"Login fail !",
 
 
 
@@ -58,6 +60,18 @@ class I18nEn {
     Keys.meShareArticle:'Share Article',
     Keys.meShareProject:'Share Project',
     Keys.meWechat:'Wechat',
+
+    Keys.clickRetry:'Click Retry',
+    Keys.loading:'Loading...',
+    Keys.noData:'No data yet',
+    Keys.pullToRefresh:'Pull to refresh',
+    Keys.refreshFailed:'Refresh Failed',
+    Keys.refreshSuccess:'Refresh Success',
+    Keys.releaseStartRefreshing:'Release start refreshing',
+    Keys.pullToLoading:'Pull to loading',
+    Keys.releaseStartLoading:'Release start leading',
+    Keys.noMoreData:"There's no more data~",
+    Keys.loadFailed:"Load failed~",
 
 
   };

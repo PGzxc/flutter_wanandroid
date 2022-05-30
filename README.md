@@ -33,7 +33,26 @@
 * 删除之前到flutter_zoom_drawer，使用google自带的drawer
 * 列表项需要缓存，只需要使用 KeepAliveWrapper包裹，防止多次加载
 
-## 五 开源库
+### v4.0
+* 对网络访进一步封装。网络访问前对设置使用ApiProvider(比如过期时间、拦截器、Cookie...)
+* 进行网络访问时，通过httpManager，其中对网络访问通过ApiProvider调用get/post等相应等方法
+* 根据BaseResponse中errorCode判断，分别返回success、fail、error等数据结果
+* 导入三方库flutter_native_splash。设置项目启动默认画面，防止白屏
+* 导入三方库flutter_pulltorefresh，加入下拉刷新和上拉加载功能
+* 导入三方库shimmer。拉表刷新时，显示前的加载框架。
+* 我->排名和积分列表，功能完成
+* Drawer抽屉添加，点击头像登陆和登陆后退出功能
+* 修改安卓和IOS应用显示等名称
+
+
+## 五 使用的指令
+### 5.1 splash更新
+flutter pub run flutter_native_splash:create
+
+### 5.2 生成model文件
+flutter pub run build_runner build
+
+## 六 开源库
 * Getx:https://github.com/jonataslaw/getx
 * logger: https://pub:flutter-io:cn/packages/logger
 * flutter_zoom_drawer:https://pub.flutter-io.cn/packages/flutter_zoom_drawer
@@ -42,6 +61,10 @@
 * json_annotation、json_serializable、build_runner：
 * flutter_easyloading：https://pub.flutter-io.cn/packages/flutter_easyloading
 * getwidget：https://pub.flutter-io.cn/packages/getwidget
+* flutter_native_splash：https://pub.flutter-io.cn/packages/flutter_native_splash
+* pull_to_refresh：https://pub.flutter-io.cn/packages/pull_to_refresh
+* lottie：https://pub.flutter-io.cn/packages/lottie
+* sprintf：https://pub.flutter-io.cn/packages/sprintf
 
 
 

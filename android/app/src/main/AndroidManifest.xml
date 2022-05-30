@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
 
    <application
-        android:label="flutter_wanandroid"
+        android:label="玩安卓"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

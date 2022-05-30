@@ -45,7 +45,7 @@ class MainView extends GetView<MainController> {
     return AppBar(
       elevation: 4.0,
       centerTitle: true,
-      title: Obx(() => Text("${controller.currentTitle}")),
+      title: Text("${controller.currentTitle}"),
       actions: [
         (controller.currentTitle == Keys.me.tr)
             ? IconButton(

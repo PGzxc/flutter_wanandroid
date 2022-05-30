@@ -32,7 +32,7 @@ class ApiProvider extends GetConnect with BaseApiServices {
   @override
   void onInit() {
     httpClient.baseUrl = RequestAPI.baseURL;
-    httpClient.timeout = const Duration(seconds: 5);
+    httpClient.timeout = const Duration(seconds: 10);
     //httpClient.addRequestModifier((request) => null);
 
     ///请求拦截-获取Cookie作为请求头
@@ -65,17 +65,17 @@ class ApiProvider extends GetConnect with BaseApiServices {
       return response;
     });
 
-    initConnectivity();
-    _connectionSubscription =
-        _connectivity.onConnectivityChanged.listen((ConnectivityResult result) {
-      _connectionStatus.value = result.toString();
-      if (_connectionStatus.value == "ConnectivityResult.mobile" ||
-          _connectionStatus.value == "ConnectivityResult.wifi") {
-        //Handler().getInternetSnackBar();
-      } else {
-        //Handler().noInternetSnackBar();
-      }
-    });
+    //initConnectivity();
+    // _connectionSubscription =
+    //     _connectivity.onConnectivityChanged.listen((ConnectivityResult result) {
+    //   _connectionStatus.value = result.toString();
+    //   if (_connectionStatus.value == "ConnectivityResult.mobile" ||
+    //       _connectionStatus.value == "ConnectivityResult.wifi") {
+    //     //Handler().getInternetSnackBar();
+    //   } else {
+    //     //Handler().noInternetSnackBar();
+    //   }
+    // });
   }
 
   ///保存Cookie信息-用于接口请求时作为Head请求头
@@ -138,8 +138,7 @@ class ApiProvider extends GetConnect with BaseApiServices {
 
   ///5.1 5.2-登陆和注册
   @override
-  Future<BaseResponse> loginRegister(
-      String request, Map<String, String> paramsMap) async {
+  Future<BaseResponse> loginRegister(String request, Map<String, String> paramsMap) async {
     final response = await post(
         request == ButtonType.login.toString()
             ? RequestAPI.login
@@ -157,7 +156,7 @@ class ApiProvider extends GetConnect with BaseApiServices {
   ///9.3-获取个人积分获取列表，需要登录后访问
   @override
   Future<BaseResponse> coinList() async {
-    final response = await post(RequestAPI.coinList, {});
+    final response = await get(RequestAPI.coinList);
     return dealWithResponse(response);
   }
 
@@ -178,18 +177,17 @@ class ApiProvider extends GetConnect with BaseApiServices {
   ///12-获取用户信息
   Future<BaseResponse> userInfo() async{
     final response = await get(RequestAPI.userInfo);
-    return dealWithResponse(response);
+   return dealWithResponse(response);
   }
 
 
   ///统一处理网络返回
-  dynamic dealWithResponse(response) {
+  BaseResponse dealWithResponse(response) {
     if (response.isOk) {
       return BaseResponse.fromJson(response.body);
     } else {
       return ApiErrorHandler().returnErrorBaseResponse(response);
     }
   }
-
 
 }

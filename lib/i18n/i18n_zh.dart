@@ -26,6 +26,8 @@ class I18nZH {
     Keys.loginContent: "登录",
     Keys.registerContent: "注册",
     Keys.logoutContent: "退出登录",
+    Keys.loginSuccess:"登陆成功",
+    Keys.loginFail:"登录失败 !",
 
 
     Keys.editUserNameHint: "请输入用户名",
@@ -55,5 +57,18 @@ class I18nZH {
     Keys.meShareArticle:'分享文章',
     Keys.meShareProject:'分享项目',
     Keys.meWechat:'公众号',
+
+
+    Keys.clickRetry:'点击重试',
+    Keys.loading:'加载中...',
+    Keys.noData:'暂无数据',
+    Keys.pullToRefresh:'下拉刷新',
+    Keys.refreshFailed:'刷新失败',
+    Keys.refreshSuccess:'刷新成功',
+    Keys.releaseStartRefreshing:'松手开始刷新数据',
+    Keys.pullToLoading:'上拉加载',
+    Keys.releaseStartLoading:'松手开始加载数据',
+    Keys.noMoreData:'我也是有底线的~',
+    Keys.loadFailed:"加载失败",
   };
 }

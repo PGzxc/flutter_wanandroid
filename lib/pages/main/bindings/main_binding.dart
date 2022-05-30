@@ -18,7 +18,7 @@ import '../../login_register/utils/login_register_utils.dart';
 class MainBinding extends Bindings{
   @override
   void dependencies() {
-    //Get.lazyPut(() => AppDrawerController());
+
     Get.lazyPut(() => MainController());
 
     Get.lazyPut(() => HomeController());
@@ -28,7 +28,7 @@ class MainBinding extends Bindings{
     Get.lazyPut(() => MeController());
 
 
-    Get.lazyPut(() => BaseController());
+
 
   }
 }

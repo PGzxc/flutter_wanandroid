@@ -8,7 +8,7 @@ part of 'coin_rank_response.dart';
 
 CoinRankResponse _$CoinRankResponseFromJson(Map<String, dynamic> json) =>
     CoinRankResponse(
-      Data.fromJson(json['data'] as Map<String, dynamic>),
+      CoinRankData.fromJson(json['data'] as Map<String, dynamic>),
       json['errorCode'] as int,
       json['errorMsg'] as String,
     );
@@ -20,10 +20,10 @@ Map<String, dynamic> _$CoinRankResponseToJson(CoinRankResponse instance) =>
       'errorMsg': instance.errorMsg,
     };
 
-Data _$DataFromJson(Map<String, dynamic> json) => Data(
+CoinRankData _$CoinRankDataFromJson(Map<String, dynamic> json) => CoinRankData(
       json['curPage'] as int,
       (json['datas'] as List<dynamic>)
-          .map((e) => Datas.fromJson(e as Map<String, dynamic>))
+          .map((e) => RankData.fromJson(e as Map<String, dynamic>))
           .toList(),
       json['offset'] as int,
       json['over'] as bool,
@@ -32,7 +32,8 @@ Data _$DataFromJson(Map<String, dynamic> json) => Data(
       json['total'] as int,
     );
 
-Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
+Map<String, dynamic> _$CoinRankDataToJson(CoinRankData instance) =>
+    <String, dynamic>{
       'curPage': instance.curPage,
       'datas': instance.datas,
       'offset': instance.offset,
@@ -42,7 +43,7 @@ Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
       'total': instance.total,
     };
 
-Datas _$DatasFromJson(Map<String, dynamic> json) => Datas(
+RankData _$RankDataFromJson(Map<String, dynamic> json) => RankData(
       json['coinCount'] as int,
       json['level'] as int,
       json['nickname'] as String,
@@ -51,7 +52,7 @@ Datas _$DatasFromJson(Map<String, dynamic> json) => Datas(
       json['username'] as String,
     );
 
-Map<String, dynamic> _$DatasToJson(Datas instance) => <String, dynamic>{
+Map<String, dynamic> _$RankDataToJson(RankData instance) => <String, dynamic>{
       'coinCount': instance.coinCount,
       'level': instance.level,
       'nickname': instance.nickname,

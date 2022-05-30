@@ -9,10 +9,7 @@ import 'package:flutter_wanandroid/pages/tree/views/tree_view.dart';
 import 'package:flutter_wanandroid/provider/base_controller.dart';
 import 'package:flutter_wanandroid/widgets/keep_alive_wrapper.dart';
 import 'package:get/get.dart';
-
-import '../../../utils/cookie_utils.dart';
 import '../../../utils/logger/logger_util.dart';
-import '../../login_register/utils/login_register_utils.dart';
 import '../../me/controllers/me_controller.dart';
 
 /// 日期：2022-05-16
@@ -49,10 +46,6 @@ class MainController extends BaseController {
   void onPageChanged(int index) {
     currentPage = index;
     currentTitle = index;
-    // if (LoginRegisterUtils().isLogin && currentTitle == Keys.me) {
-    //   MeController meController=Get.find<MeController>();
-    //   meController.getUserInfo();
-    // }
   }
 
   /// 生命周期
@@ -63,69 +56,32 @@ class MainController extends BaseController {
     super.onInit();
 
     LoggerUtil.d('onInit()', tag: 'IndexController');
-
     pageController = PageController(initialPage: currentPage);
 
     /// 初始静态数据
     bottomTabs = <BottomNavigationBarItem>[
-      BottomNavigationBarItem(
-        icon: const Icon(
-          Icons.home_outlined,
-          size: 20,
-        ),
-        activeIcon: const Icon(
-          Icons.home,
-          size: 25,
-        ),
-        // label: '首页',
+      BottomNavigationBarItem(icon: const Icon(Icons.home_outlined, size: 20,),
+        activeIcon: const Icon(Icons.home, size: 25),
         label: Keys.home.tr,
       ),
       BottomNavigationBarItem(
-        icon: const Icon(
-          Icons.account_tree_outlined,
-          size: 20,
-        ),
-        activeIcon: const Icon(
-          Icons.account_tree,
-          size: 25,
-        ),
-        // label: '体系',
+        icon: const Icon(Icons.account_tree_outlined, size: 20),
+        activeIcon: const Icon(Icons.account_tree, size: 25,),
         label: Keys.tree.tr,
       ),
       BottomNavigationBarItem(
-        icon: const Icon(
-          Icons.navigation_outlined,
-          size: 20,
-        ),
-        activeIcon: const Icon(
-          Icons.navigation,
-          size: 25,
-        ),
-        // label: '导航',
+        icon: const Icon(Icons.navigation_outlined, size: 20),
+        activeIcon: const Icon(Icons.navigation, size: 25),
         label: Keys.navigation.tr,
       ),
       BottomNavigationBarItem(
-        icon: const Icon(
-          Icons.apps_outlined,
-          size: 20,
-        ),
-        activeIcon: const Icon(
-          Icons.apps,
-          size: 25,
-        ),
-        // label: '项目',
+        icon: const Icon(Icons.apps_outlined, size: 20),
+        activeIcon: const Icon(Icons.apps, size: 25),
         label: Keys.project.tr,
       ),
       BottomNavigationBarItem(
-        icon: const Icon(
-          Icons.person_outline,
-          size: 20,
-        ),
-        activeIcon: const Icon(
-          Icons.person,
-          size: 25,
-        ),
-        // label: '我的',
+        icon: const Icon(Icons.person_outline, size: 20),
+        activeIcon: const Icon(Icons.person, size: 25),
         label: Keys.me.tr,
       ),
     ];
@@ -142,8 +98,9 @@ class MainController extends BaseController {
       const KeepAliveWrapper(keepAlive: true, child: TreeView()),
       const KeepAliveWrapper(keepAlive: true, child: NavigationView()),
       const KeepAliveWrapper(keepAlive: true, child: ProjectView()),
-      const KeepAliveWrapper(keepAlive: false, child: MeView()),
+      const KeepAliveWrapper(keepAlive: true, child: MeView()),
     ];
+
   }
 
   ///在 onInit() 之后调用 1 帧。这是进入的理想场所
@@ -153,6 +110,14 @@ class MainController extends BaseController {
     super.onReady();
     // async 拉取数据
     LoggerUtil.d('onReady()', tag: 'MainController');
+    ever(userInfo, (callback) => {
+      if(userInfo!=null){
+
+      }else{
+
+      }
+    });
+
   }
 
   ///在 [onDelete] 方法之前调用。 [onClose] 可能用于
@@ -183,13 +148,12 @@ class MainController extends BaseController {
     EasyLoading.show(status: '加载中...');
     provider.logout().then((value) {
       if (value.success) {
-        EasyLoading.showSuccess('退出成功');
-
-        ///清除Cookie
-        CookieUtils.clearCookie();
-
-        ///清除用户名和密码
-        LoginRegisterUtils.clearUserInfo();
+        isLogin=false;
+        // EasyLoading.showSuccess('退出成功');
+        // ///清除Cookie
+        // CookieUtils.clearCookie();
+        // ///清除用户名和密码
+        // LoginRegisterUtils.clearUserInfo();
 
         Get.back();
       } else {

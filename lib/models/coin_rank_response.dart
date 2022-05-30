@@ -8,7 +8,7 @@ part 'coin_rank_response.g.dart';
 class CoinRankResponse extends Object {
 
   @JsonKey(name: 'data')
-  Data data;
+  CoinRankData data;
 
   @JsonKey(name: 'errorCode')
   int errorCode;
@@ -26,13 +26,13 @@ class CoinRankResponse extends Object {
 
 
 @JsonSerializable()
-class Data extends Object {
+class CoinRankData extends Object {
 
   @JsonKey(name: 'curPage')
   int curPage;
 
   @JsonKey(name: 'datas')
-  List<Datas> datas;
+  List<RankData> datas;
 
   @JsonKey(name: 'offset')
   int offset;
@@ -49,17 +49,17 @@ class Data extends Object {
   @JsonKey(name: 'total')
   int total;
 
-  Data(this.curPage,this.datas,this.offset,this.over,this.pageCount,this.size,this.total,);
+  CoinRankData(this.curPage,this.datas,this.offset,this.over,this.pageCount,this.size,this.total,);
 
-  factory Data.fromJson(Map<String, dynamic> srcJson) => _$DataFromJson(srcJson);
+  factory CoinRankData.fromJson(Map<String, dynamic> srcJson) => _$CoinRankDataFromJson(srcJson);
 
-  Map<String, dynamic> toJson() => _$DataToJson(this);
+  Map<String, dynamic> toJson() => _$CoinRankDataToJson(this);
 
 }
 
 
 @JsonSerializable()
-class Datas extends Object {
+class RankData extends Object {
 
   @JsonKey(name: 'coinCount')
   int coinCount;
@@ -79,11 +79,11 @@ class Datas extends Object {
   @JsonKey(name: 'username')
   String username;
 
-  Datas(this.coinCount,this.level,this.nickname,this.rank,this.userId,this.username,);
+  RankData(this.coinCount,this.level,this.nickname,this.rank,this.userId,this.username,);
 
-  factory Datas.fromJson(Map<String, dynamic> srcJson) => _$DatasFromJson(srcJson);
+  factory RankData.fromJson(Map<String, dynamic> srcJson) => _$RankDataFromJson(srcJson);
 
-  Map<String, dynamic> toJson() => _$DatasToJson(this);
+  Map<String, dynamic> toJson() => _$RankDataToJson(this);
 
 }
 

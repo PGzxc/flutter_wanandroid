@@ -33,7 +33,7 @@ class MePersonInfoCellWidget extends GetView<MeController> {
                 context.bodyText2Style?.copyWith(fontSize: 12),
           ),
           Gaps.vGap5,
-          Text(LoginRegisterUtils().isLogin ? '$value' : '-',style: context.headline6Style,)
+          Text(controller.isLogin ? '$value' : '-',style: context.headline6Style,)
         ],
       ),
     );
