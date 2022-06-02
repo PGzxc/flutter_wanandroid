@@ -24,6 +24,7 @@ Future<void> main() async {
         unknownRoute: AppPages.unknownRoute,
         initialRoute: AppPages.init,
         getPages: AppPages.routes,
+        smartManagement: SmartManagement.keepFactory,
 
         ///主题设置
         theme: ThemeUtil.getThemeModel(),

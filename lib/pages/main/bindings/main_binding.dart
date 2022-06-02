@@ -1,15 +1,11 @@
 import 'package:flutter_wanandroid/pages/home/controllers/home_controller.dart';
-import 'package:flutter_wanandroid/pages/login_register/controllers/login_register_controller.dart';
-import 'package:flutter_wanandroid/pages/main/controllers/drawer_controller.dart';
 import 'package:flutter_wanandroid/pages/main/controllers/main_controller.dart';
 import 'package:flutter_wanandroid/pages/me/controllers/me_controller.dart';
+import 'package:flutter_wanandroid/pages/message/controllers/message_controller.dart';
 import 'package:flutter_wanandroid/pages/navigation/controllers/navigation_controller.dart';
 import 'package:flutter_wanandroid/pages/project/controllers/project_controller.dart';
-import 'package:flutter_wanandroid/pages/tree/controllers/tree_controller.dart';
-import 'package:flutter_wanandroid/provider/base_controller.dart';
 import 'package:get/instance_manager.dart';
 
-import '../../login_register/utils/login_register_utils.dart';
 
 /// 日期：2022-05-16
 /// 描述：主页-页面绑定
@@ -22,13 +18,10 @@ class MainBinding extends Bindings{
     Get.lazyPut(() => MainController());
 
     Get.lazyPut(() => HomeController());
-    Get.lazyPut(() => TreeController());
     Get.lazyPut(() => NavigationController());
     Get.lazyPut(() => ProjectController());
+    Get.lazyPut(() => MessageController());
     Get.lazyPut(() => MeController());
-
-
-
 
   }
 }

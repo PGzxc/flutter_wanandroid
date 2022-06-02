@@ -53,7 +53,7 @@ dependencies:
   #8-getwidget：google开源的UI Kit工具库，包含1000多个Widget组件。简化开发流程。项目地址：https://pub.flutter-io.cn/packages/getwidget
   getwidget: ^2.0.5
   #9-flutter_native_splash:启动画面.项目地址：https://pub.flutter-io.cn/packages/flutter_native_splash
-  flutter_native_splash: ^2.2.1
+  flutter_native_splash: ^2.2.0
   #10-flutter_pulltorefresh:下拉刷新，上拉加载。项目地址：https://pub.flutter-io.cn/packages/pull_to_refresh
   pull_to_refresh: ^2.0.0
   #11-lottie:lottie动画。项目地址：https://pub.flutter-io.cn/packages/lottie
@@ -62,6 +62,15 @@ dependencies:
   sprintf: ^6.0.0
   # 13、shimmer。拉表刷新时，显示前的加载框架。项目地址：https://pub.flutter-io.cn/packages/shimmer
   shimmer: ^2.0.0
+  #14-cached_network_image。带网络缓存带net-image.项目地址：https://pub.flutter-io.cn/packages/cached_network_image
+  cached_network_image: ^3.2.1
+  #15-flutter_html: 加载html标签 。与flutter_native_splash高版本不兼容。项目地址：https://pub.flutter-io.cn/packages/flutter_html
+  flutter_html: ^2.2.1
+  #16webview_flutter: flutter中的webview组件。项目地址：https://pub.flutter-io.cn/packages/webview_flutter
+  webview_flutter: ^2.0.4
+  #17-badges: 带消息带badges。项目地址：https://pub.flutter-io.cn/packages/badges
+  badges: ^2.0.2
+
 
 dev_dependencies:
   flutter_test:
@@ -92,9 +101,10 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   # 本地图片资源存放
   assets:
-    - images/
-    - assets/
+    - assets/images/
+    - assets/logo/
     - assets/lottie/
+    - assets/svg/
 
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

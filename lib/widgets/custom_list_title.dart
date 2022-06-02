@@ -23,7 +23,7 @@ class CustomListTitle extends StatelessWidget {
     this.maxLines = 1,
     this.leftColor,
     this.rightColor,
-    this.rightImage = "images/ic_arrow_right.png",
+    this.rightImage = "assets/images/ic_arrow_right.png",
     this.rightWidget,
     this.leftSize = 22,
     this.endSize = 16,

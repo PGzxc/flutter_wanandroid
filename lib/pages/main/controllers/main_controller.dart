@@ -1,15 +1,17 @@
+import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_wanandroid/i18n/i18n_keys.dart';
 import 'package:flutter_wanandroid/pages/home/views/home_view.dart';
 import 'package:flutter_wanandroid/pages/me/views/me_view.dart';
+import 'package:flutter_wanandroid/pages/message/views/message_view.dart';
 import 'package:flutter_wanandroid/pages/navigation/views/navigation_view.dart';
 import 'package:flutter_wanandroid/pages/project/views/project_view.dart';
-import 'package:flutter_wanandroid/pages/tree/views/tree_view.dart';
 import 'package:flutter_wanandroid/provider/base_controller.dart';
 import 'package:flutter_wanandroid/widgets/keep_alive_wrapper.dart';
 import 'package:get/get.dart';
 import '../../../utils/logger/logger_util.dart';
+import '../../login_register/utils/login_register_utils.dart';
 import '../../me/controllers/me_controller.dart';
 
 /// 日期：2022-05-16
@@ -25,6 +27,12 @@ class MainController extends BaseController {
   final _currentTitle = Keys.home.tr.obs;
   set currentTitle(index) => _currentTitle.value = bottomTabs[index].label!;
   get currentTitle => _currentTitle.value;
+
+  // ///未读消息的数量
+  // final _messageNum=0.obs;
+  // set messageNum(value)=>_messageNum.value=value;
+  // get messageNum=>_messageNum.value;
+
 
   /// PageView页面控制器
   late PageController pageController;
@@ -65,19 +73,29 @@ class MainController extends BaseController {
         label: Keys.home.tr,
       ),
       BottomNavigationBarItem(
-        icon: const Icon(Icons.account_tree_outlined, size: 20),
-        activeIcon: const Icon(Icons.account_tree, size: 25,),
-        label: Keys.tree.tr,
-      ),
-      BottomNavigationBarItem(
-        icon: const Icon(Icons.navigation_outlined, size: 20),
-        activeIcon: const Icon(Icons.navigation, size: 25),
+        icon: const Icon(Icons.outlined_flag_outlined, size: 20),
+        activeIcon: const Icon(Icons.outlined_flag, size: 25,),
         label: Keys.navigation.tr,
       ),
       BottomNavigationBarItem(
-        icon: const Icon(Icons.apps_outlined, size: 20),
-        activeIcon: const Icon(Icons.apps, size: 25),
+        icon: const Icon(Icons.dashboard_customize_outlined, size: 20),
+        activeIcon: const Icon(Icons.dashboard, size: 25),
         label: Keys.project.tr,
+      ),
+      BottomNavigationBarItem(
+        icon:Obx(() =>  Badge(
+          showBadge: messageNum>0,
+          badgeColor: Colors.red,
+          badgeContent: Text("$messageNum"),
+          child: const Icon(Icons.message_outlined,size: 20,),
+        )),
+        activeIcon:Obx(() =>  Badge(
+          showBadge: messageNum>0,
+          badgeColor: Colors.red,
+          badgeContent: Text("$messageNum"),
+          child: const Icon(Icons.message, size:25),
+        )),
+        label: Keys.message.tr,
       ),
       BottomNavigationBarItem(
         icon: const Icon(Icons.person_outline, size: 20),
@@ -85,6 +103,33 @@ class MainController extends BaseController {
         label: Keys.me.tr,
       ),
     ];
+
+    // bottomTabs = <BottomNavigationBarItem>[
+    //   BottomNavigationBarItem(icon: const Icon(Icons.home_outlined, size: 20,),
+    //     activeIcon: const Icon(Icons.home, size: 25),
+    //     label: Keys.home.tr,
+    //   ),
+    //   BottomNavigationBarItem(
+    //     icon: const Icon(Icons.account_tree_outlined, size: 20),
+    //     activeIcon: const Icon(Icons.account_tree, size: 25,),
+    //     label: Keys.tree.tr,
+    //   ),
+    //   BottomNavigationBarItem(
+    //     icon: const Icon(Icons.navigation_outlined, size: 20),
+    //     activeIcon: const Icon(Icons.navigation, size: 25),
+    //     label: Keys.navigation.tr,
+    //   ),
+    //   BottomNavigationBarItem(
+    //     icon: const Icon(Icons.apps_outlined, size: 20),
+    //     activeIcon: const Icon(Icons.apps, size: 25),
+    //     label: Keys.project.tr,
+    //   ),
+    //   BottomNavigationBarItem(
+    //     icon: const Icon(Icons.person_outline, size: 20),
+    //     activeIcon: const Icon(Icons.person, size: 25),
+    //     label: Keys.me.tr,
+    //   ),
+    // ];
     tabPageBodies = <Widget>[
       ///没有缓存时使用
       // const HomeView(),
@@ -95,9 +140,9 @@ class MainController extends BaseController {
 
       ///使用了可滚动组件的页面缓存之后，使用KeepAliveWrapper包裹组件
       const KeepAliveWrapper(keepAlive: true, child: HomeView()),
-      const KeepAliveWrapper(keepAlive: true, child: TreeView()),
       const KeepAliveWrapper(keepAlive: true, child: NavigationView()),
       const KeepAliveWrapper(keepAlive: true, child: ProjectView()),
+      const KeepAliveWrapper(keepAlive: true, child: MessageView()),
       const KeepAliveWrapper(keepAlive: true, child: MeView()),
     ];
 
@@ -110,14 +155,9 @@ class MainController extends BaseController {
     super.onReady();
     // async 拉取数据
     LoggerUtil.d('onReady()', tag: 'MainController');
-    ever(userInfo, (callback) => {
-      if(userInfo!=null){
-
-      }else{
-
-      }
-    });
-
+    if(isLogin){
+      userInfo=LoginRegisterUtils.getUserInfo();
+    }
   }
 
   ///在 [onDelete] 方法之前调用。 [onClose] 可能用于
@@ -149,12 +189,6 @@ class MainController extends BaseController {
     provider.logout().then((value) {
       if (value.success) {
         isLogin=false;
-        // EasyLoading.showSuccess('退出成功');
-        // ///清除Cookie
-        // CookieUtils.clearCookie();
-        // ///清除用户名和密码
-        // LoginRegisterUtils.clearUserInfo();
-
         Get.back();
       } else {
         EasyLoading.showError('退出出错:${value.errorMsg}');

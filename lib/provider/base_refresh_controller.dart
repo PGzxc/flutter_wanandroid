@@ -32,7 +32,7 @@ class BaseRefreshController extends BaseController {
   set refreshLoadState(value) => _refreshLoadState.value = value;
 
   //滚动控制器
-  late ScrollController scrollController;
+ // late ScrollController scrollController;
 
   //标题栏透明比例
   final _percent = 0.0.obs;
@@ -44,14 +44,14 @@ class BaseRefreshController extends BaseController {
   @override
   void onInit() {
     super.onInit();
-    scrollController = ScrollController();
+    //scrollController = ScrollController();
     _refreshController = RefreshController(initialRefresh: initialRefresh);
   }
 
   @override
   void dispose() {
     super.dispose();
-    scrollController.dispose();
+   // scrollController.dispose();
     _refreshController.dispose();
   }
 

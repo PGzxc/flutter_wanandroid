@@ -43,6 +43,15 @@
 * 我->排名和积分列表，功能完成
 * Drawer抽屉添加，点击头像登陆和登陆后退出功能
 * 修改安卓和IOS应用显示等名称
+### v5.0
+* 使用google组件carousel显示首页轮播图
+* 首页文章显示
+* 使用三方库webview_flutter，显示网页视图
+* 使用三方库badges。显示bottombar带消息的数量，并通过num控制badges的显示与否
+
+
+### v5.0
+* 未登录时，不显示退出按钮。登陆后，显示退出按钮
 
 
 ## 五 使用的指令
@@ -51,6 +60,9 @@ flutter pub run flutter_native_splash:create
 
 ### 5.2 生成model文件
 flutter pub run build_runner build
+
+### 5.3 项目打包输出
+flutter build apk --split-per-abi
 
 ## 六 开源库
 * Getx:https://github.com/jonataslaw/getx

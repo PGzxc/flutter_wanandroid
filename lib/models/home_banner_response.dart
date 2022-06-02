@@ -5,7 +5,7 @@ part 'home_banner_response.g.dart';
 @JsonSerializable()
 class HomeBannerResponse extends Object {
   @JsonKey(name: 'data')
-  List<Data> data;
+  List<Banner> data;
 
   @JsonKey(name: 'errorCode')
   int errorCode;
@@ -26,32 +26,32 @@ class HomeBannerResponse extends Object {
 }
 
 @JsonSerializable()
-class Data extends Object {
+class Banner extends Object {
   @JsonKey(name: 'desc')
-  String desc;
+  String? desc;
 
   @JsonKey(name: 'id')
-  int id;
+  int? id;
 
   @JsonKey(name: 'imagePath')
-  String imagePath;
+  String? imagePath;
 
   @JsonKey(name: 'isVisible')
-  int isVisible;
+  int? isVisible;
 
   @JsonKey(name: 'order')
-  int order;
+  int? order;
 
   @JsonKey(name: 'title')
-  String title;
+  String? title;
 
   @JsonKey(name: 'type')
-  int type;
+  int? type;
 
   @JsonKey(name: 'url')
-  String url;
+  String? url;
 
-  Data(
+  Banner({
     this.desc,
     this.id,
     this.imagePath,
@@ -60,10 +60,10 @@ class Data extends Object {
     this.title,
     this.type,
     this.url,
-  );
+  });
 
-  factory Data.fromJson(Map<String, dynamic> srcJson) =>
-      _$DataFromJson(srcJson);
+  factory Banner.fromJson(Map<String, dynamic> srcJson) =>
+      _$BannerFromJson(srcJson);
 
-  Map<String, dynamic> toJson() => _$DataToJson(this);
+  Map<String, dynamic> toJson() => _$BannerToJson(this);
 }

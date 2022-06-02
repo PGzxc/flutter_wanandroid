@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_wanandroid/models/coin_rank_response.dart';
 import 'package:flutter_wanandroid/pages/coin_rank/controllers/coin_rank_controller.dart';
+import 'package:flutter_wanandroid/res/app_theme.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/components/card/gf_card.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-
 import '../../../provider/refresh/refresh_paging_state_page.dart';
 
 /// 日期：2022-05-28
@@ -26,30 +25,28 @@ class CoinRankView extends GetView<CoinRankController> {
             lottieRocketRefreshHeader: true,
             onRefresh: () => controller.onRefreshRequestData(),
             onLoadMore: () => controller.onLoadMoreRequestData(),
-            header: const MaterialClassicHeader(
-              color: Colors.red,
-            ),
-            child: _buildBody())));
+            //header: const MaterialClassicHeader(color: Colors.red),
+            header: const ClassicHeader(),
+            child: _buildBody(context))));
   }
 
-  Widget _buildBody() {
+  Widget _buildBody(BuildContext context) {
     return ListView.builder(
       itemCount: controller.coinRankLists.length,
       itemBuilder: (context, index) {
         final item = controller.coinRankLists[index];
-        return _buildItem(item);
+        return _buildItem(item, context);
       },
     );
   }
 
   ///每一个Item视图
-  Widget _buildItem(RankData item) {
+  Widget _buildItem(RankData item, BuildContext context) {
     return GFCard(
+      color: context.colorItemBackground,
       margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
       padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
       boxFit: BoxFit.contain,
-      colorFilter:
-          ColorFilter.mode(Colors.black.withOpacity(0.67), BlendMode.darken),
       content: Column(
         children: [
           Text('排名:${item.rank}'),

@@ -22,8 +22,8 @@ Map<String, dynamic> _$CoinListResponseToJson(CoinListResponse instance) =>
 
 CoinListData _$CoinListDataFromJson(Map<String, dynamic> json) => CoinListData(
       json['curPage'] as int,
-      (json['datas'] as List<dynamic>)
-          .map((e) => CoinData.fromJson(e as Map<String, dynamic>))
+      (json['datas'] as List<dynamic>?)
+          ?.map((e) => CoinData.fromJson(e as Map<String, dynamic>))
           .toList(),
       json['offset'] as int,
       json['over'] as bool,

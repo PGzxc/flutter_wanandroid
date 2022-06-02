@@ -28,7 +28,7 @@ class R {
 
   /// png
   static const String iconInvertedTriangle =
-      'images/icon_inverted_triangle.png';
+      'assets/images/icon_inverted_triangle.png';
 
   static const String iconSplashBg = 'images/splash_bkpp.png';
 }

@@ -28,7 +28,7 @@ class SettingView extends GetView<SettingController> {
                   ? const Icon(Icons.nightlight_round)
                   : const Icon(Icons.wb_sunny_rounded),
               rightContent: Keys.theme.tr,
-              rightImage: 'images/ic_arrow_right.png',
+              rightImage: 'assets/images/ic_arrow_right.png',
               onTap: () => Get.toNamed(Routes.theme.nameToRoute()),
             ),
             CustomListTitle(
@@ -40,7 +40,7 @@ class SettingView extends GetView<SettingController> {
               onTap: () => Get.toNamed(Routes.language.nameToRoute()),
             ),
             Visibility(
-              visible: true,
+              visible: controller.isLogin ? true : false,
               child: CustomListTitle(
                 title: Keys.logout.tr,
                 isShowLeftWidget: true,

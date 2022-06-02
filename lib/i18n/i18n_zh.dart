@@ -7,6 +7,7 @@ class I18nZH {
     Keys.tree: '体系树',
     Keys.navigation: '导航',
     Keys.project: '项目',
+    Keys.message:"消息",
     Keys.me: '我',
     Keys.theme: '主题',
     Keys.language: '语言',
@@ -70,5 +71,8 @@ class I18nZH {
     Keys.releaseStartLoading:'松手开始加载数据',
     Keys.noMoreData:'我也是有底线的~',
     Keys.loadFailed:"加载失败",
+
+    Keys.freshTag:"新",
+    Keys.myCompany:"玩安卓",
   };
 }

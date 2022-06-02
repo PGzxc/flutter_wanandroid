@@ -84,6 +84,11 @@ extension ThemeExtension on BuildContext {
       Theme.of(this).appBarTheme.systemOverlayStyle!.statusBarColor;
 
   //WrapChip背景填充色
+  Color? get colorItemBackground {
+    return Get.isDarkMode ? Colors.black12.withOpacity(0.2) : Colors.white.withOpacity(0.2);
+  }
+
+  //WrapChip背景填充色
   Color? get chipBackgroundColor {
     return Get.isDarkMode ? Colors.grey.withOpacity(0.2) : Colors.grey[200];
   }

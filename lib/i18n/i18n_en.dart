@@ -8,6 +8,7 @@ class I18nEn {
     Keys.tree: 'Tree',
     Keys.navigation: 'Navigation',
     Keys.project: 'Project',
+    Keys.message:"Message",
     Keys.me: 'Me',
     Keys.theme: 'Theme',
     Keys.language: 'Language',
@@ -72,6 +73,9 @@ class I18nEn {
     Keys.releaseStartLoading:'Release start leading',
     Keys.noMoreData:"There's no more data~",
     Keys.loadFailed:"Load failed~",
+
+    Keys.freshTag:"New",
+    Keys.myCompany:"Wan Android",
 
 
   };

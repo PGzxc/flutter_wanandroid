@@ -1,12 +1,13 @@
 ///1.1 首页-首页文章列表
 
+import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'home_article_response.g.dart';
 
 @JsonSerializable()
 class HomeArticleResponse extends Object {
   @JsonKey(name: 'data')
-  Data data;
+  HomeArticleData data;
 
   @JsonKey(name: 'errorCode')
   int errorCode;
@@ -27,29 +28,29 @@ class HomeArticleResponse extends Object {
 }
 
 @JsonSerializable()
-class Data extends Object {
+class HomeArticleData extends Object {
   @JsonKey(name: 'curPage')
-  int curPage;
+  int? curPage;
 
   @JsonKey(name: 'datas')
-  List<Datas> datas;
+  List<HomeArticle>? datas;
 
   @JsonKey(name: 'offset')
-  int offset;
+  int? offset;
 
   @JsonKey(name: 'over')
-  bool over;
+  bool? over;
 
   @JsonKey(name: 'pageCount')
-  int pageCount;
+  int? pageCount;
 
   @JsonKey(name: 'size')
-  int size;
+  int? size;
 
   @JsonKey(name: 'total')
-  int total;
+  int? total;
 
-  Data(
+  HomeArticleData({
     this.curPage,
     this.datas,
     this.offset,
@@ -57,169 +58,136 @@ class Data extends Object {
     this.pageCount,
     this.size,
     this.total,
-  );
+  });
 
-  factory Data.fromJson(Map<String, dynamic> srcJson) =>
-      _$DataFromJson(srcJson);
+  factory HomeArticleData.fromJson(Map<String, dynamic> srcJson) =>
+      _$HomeArticleDataFromJson(srcJson);
 
-  Map<String, dynamic> toJson() => _$DataToJson(this);
+  Map<String, dynamic> toJson() => _$HomeArticleDataToJson(this);
 }
 
 @JsonSerializable()
-class Datas extends Object {
+class HomeArticle extends Object {
   @JsonKey(name: 'apkLink')
-  String apkLink;
+  String? apkLink;
 
   @JsonKey(name: 'audit')
-  int audit;
+  int? audit;
 
   @JsonKey(name: 'author')
-  String author;
+  String? author;
 
   @JsonKey(name: 'canEdit')
-  bool canEdit;
+  bool? canEdit;
 
   @JsonKey(name: 'chapterId')
-  int chapterId;
+  int? chapterId;
 
   @JsonKey(name: 'chapterName')
-  String chapterName;
+  String? chapterName;
 
   @JsonKey(name: 'collect')
-  bool collect;
+  bool? collect;
 
   @JsonKey(name: 'courseId')
-  int courseId;
+  int? courseId;
 
   @JsonKey(name: 'desc')
-  String desc;
+  String? desc;
 
   @JsonKey(name: 'descMd')
-  String descMd;
+  String? descMd;
 
   @JsonKey(name: 'envelopePic')
-  String envelopePic;
+  String? envelopePic;
 
   @JsonKey(name: 'fresh')
-  bool fresh;
+  bool? fresh;
 
   @JsonKey(name: 'host')
-  String host;
+  String? host;
 
   @JsonKey(name: 'id')
-  int id;
+  int? id;
 
   @JsonKey(name: 'link')
-  String link;
+  String? link;
 
   @JsonKey(name: 'niceDate')
-  String niceDate;
+  String? niceDate;
 
   @JsonKey(name: 'niceShareDate')
-  String niceShareDate;
+  String? niceShareDate;
 
   @JsonKey(name: 'origin')
-  String origin;
+  String? origin;
 
   @JsonKey(name: 'prefix')
-  String prefix;
+  String? prefix;
 
   @JsonKey(name: 'projectLink')
-  String projectLink;
+  String? projectLink;
 
   @JsonKey(name: 'publishTime')
-  int publishTime;
+  int? publishTime;
 
   @JsonKey(name: 'realSuperChapterId')
-  int realSuperChapterId;
+  int? realSuperChapterId;
 
   @JsonKey(name: 'selfVisible')
-  int selfVisible;
+  int? selfVisible;
 
   @JsonKey(name: 'shareDate')
-  int shareDate;
+  int? shareDate;
 
   @JsonKey(name: 'shareUser')
-  String shareUser;
+  String? shareUser;
 
   @JsonKey(name: 'superChapterId')
-  int superChapterId;
+  int? superChapterId;
 
   @JsonKey(name: 'superChapterName')
-  String superChapterName;
+  String? superChapterName;
 
   @JsonKey(name: 'tags')
-  List<Tags> tags;
+  List<Tags>? tags;
 
   @JsonKey(name: 'title')
-  String title;
+  String? title;
 
   @JsonKey(name: 'type')
-  int type;
+  int? type;
 
   @JsonKey(name: 'userId')
-  int userId;
+  int? userId;
 
   @JsonKey(name: 'visible')
-  int visible;
+  int? visible;
 
   @JsonKey(name: 'zan')
-  int zan;
+  int? zan;
 
-  Datas(
-    this.apkLink,
-    this.audit,
-    this.author,
-    this.canEdit,
-    this.chapterId,
-    this.chapterName,
-    this.collect,
-    this.courseId,
-    this.desc,
-    this.descMd,
-    this.envelopePic,
-    this.fresh,
-    this.host,
-    this.id,
-    this.link,
-    this.niceDate,
-    this.niceShareDate,
-    this.origin,
-    this.prefix,
-    this.projectLink,
-    this.publishTime,
-    this.realSuperChapterId,
-    this.selfVisible,
-    this.shareDate,
-    this.shareUser,
-    this.superChapterId,
-    this.superChapterName,
-    this.tags,
-    this.title,
-    this.type,
-    this.userId,
-    this.visible,
-    this.zan,
-  );
+  HomeArticle();
 
-  factory Datas.fromJson(Map<String, dynamic> srcJson) =>
-      _$DatasFromJson(srcJson);
+  factory HomeArticle.fromJson(Map<String, dynamic> srcJson) =>
+      _$HomeArticleFromJson(srcJson);
 
-  Map<String, dynamic> toJson() => _$DatasToJson(this);
+  Map<String, dynamic> toJson() => _$HomeArticleToJson(this);
+
 }
 
 @JsonSerializable()
 class Tags extends Object {
   @JsonKey(name: 'name')
-  String name;
+  String? name;
 
   @JsonKey(name: 'url')
-  String url;
+  String? url;
 
-  Tags(
+  Tags({
     this.name,
     this.url,
-  );
+  });
 
   factory Tags.fromJson(Map<String, dynamic> srcJson) =>
       _$TagsFromJson(srcJson);

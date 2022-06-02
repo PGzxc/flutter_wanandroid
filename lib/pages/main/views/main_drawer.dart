@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_wanandroid/pages/main/controllers/main_controller.dart';
+import 'package:flutter_wanandroid/res/app_theme.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
 import '../../../i18n/i18n_keys.dart';
@@ -17,9 +18,8 @@ class MainDrawer extends GetView<MainController> {
 
   @override
   Widget build(BuildContext context) {
-    UserInfo? userInfo = LoginRegisterUtils.getUserInfo();
     return Obx(() =>  GFDrawer(
-      color: Colors.white,
+      color: context.scaffoldBackgroundColor,
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
@@ -69,26 +69,20 @@ class MainDrawer extends GetView<MainController> {
           ),
           Container(
             padding: const EdgeInsets.only(left: 10),
-            color: Colors.white,
+            color: context.scaffoldBackgroundColor,
             child: Column(
               children: <Widget>[
                 ListTile(
-                  leading: const Icon(
-                    Icons.today,
-                  ),
+                  leading: const Icon(Icons.today),
                   trailing: const Icon(Icons.arrow_forward_ios),
                   title: Text(Keys.menuTodoList.tr),
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
+                  onTap: () {Navigator.pop(context);}
                 ),
                 ListTile(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
+                  onTap: () {Navigator.pop(context);},
                   title: Text(Keys.menuUnreadMsg.tr),
                   leading: const Icon(Icons.message_rounded),
-                  trailing: const Icon(Icons.arrow_forward_ios),
+                  trailing: const Icon(Icons.arrow_forward_ios)
                 ),
                 ListTile(
                     onTap: () => Get.back(),

@@ -25,6 +25,9 @@ class Config {
     ///配置登陆成功与否到控制器和判断依据
     BaseController baseController = Get.put(BaseController());
     baseController.isLogin = LoginRegisterUtils.getUserInfo() != null;
+    // if(baseController.isLogin){
+    //   baseController.userInfo=LoginRegisterUtils.getUserInfo();
+    // }
 
     ///是否登陆-用于退出重新进入时判断是否登陆
     //LoginRegisterUtils().isLogin = LoginRegisterUtils.getUserInfo() != null;

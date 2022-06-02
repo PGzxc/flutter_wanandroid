@@ -14,35 +14,8 @@ class MainScreen extends GetView<MainController> {
 
   @override
   Widget build(BuildContext context) {
-
     return const BodyView();
-
-    // MainController mainController=Get.find();
-    // AppDrawerController controller= Get.put(AppDrawerController());
-    // return Obx(() =>Scaffold(
-    //   appBar:_buildAppBar(mainController,controller) ,
-    //   body: const BodyView(),
-    // ) ) ;
   }
-
-  // PreferredSizeWidget? _buildAppBar(MainController mainController,AppDrawerController controller){
-  //   return  (mainController.currentPage==4)? AppBar(
-  //     elevation: 4.0,
-  //     leading: IconButton(icon: const Icon(Icons.menu), onPressed: ()=> controller.toggleDrawer()),
-  //     actions: [IconButton(
-  //       icon: const Icon(Icons.settings),
-  //       onPressed: () {Get.toNamed(Routes.setting);},
-  //     )],
-  //   ) :AppBar(
-  //     elevation: 4.0,
-  //     title: Obx(()=>Text("${mainController.currentTitle}")) ,
-  //     leading: IconButton(icon: const Icon(Icons.menu), onPressed: ()=> controller.toggleDrawer()),
-  //     actions: [IconButton(
-  //       icon: const Icon(Icons.search),
-  //       onPressed: () {},
-  //     )],
-  //   );
-  // }
 }
 
 

@@ -6,6 +6,5 @@ class MeBinding extends Bindings{
   @override
   void dependencies() {
      Get.lazyPut(() => MeController());
-
   }
 }

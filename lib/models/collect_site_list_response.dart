@@ -1,3 +1,4 @@
+import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'collect_site_list_response.g.dart';
@@ -8,7 +9,7 @@ part 'collect_site_list_response.g.dart';
 class CollectSiteListResponse extends Object {
 
   @JsonKey(name: 'data')
-  List<Data> data;
+  List<CollectSite> data;
 
   @JsonKey(name: 'errorCode')
   int errorCode;
@@ -26,37 +27,46 @@ class CollectSiteListResponse extends Object {
 
 
 @JsonSerializable()
-class Data extends Object {
+class CollectSite extends Object {
 
   @JsonKey(name: 'desc')
-  String desc;
+  String? desc;
 
   @JsonKey(name: 'icon')
-  String icon;
+  String? icon;
 
   @JsonKey(name: 'id')
-  int id;
+  int? id;
 
   @JsonKey(name: 'link')
-  String link;
+  String? link;
 
   @JsonKey(name: 'name')
-  String name;
+  String? name;
 
   @JsonKey(name: 'order')
-  int order;
+  int? order;
 
   @JsonKey(name: 'userId')
-  int userId;
+  int? userId;
 
   @JsonKey(name: 'visible')
-  int visible;
+  int? visible;
 
-  Data(this.desc,this.icon,this.id,this.link,this.name,this.order,this.userId,this.visible,);
+  bool? collect;
+  
+  CollectSite({this.desc,this.icon,this.id,this.link,this.name,this.order,this.userId,this.visible});
 
-  factory Data.fromJson(Map<String, dynamic> srcJson) => _$DataFromJson(srcJson);
+  factory CollectSite.fromJson(Map<String, dynamic> srcJson) => _$CollectSiteFromJson(srcJson);
 
-  Map<String, dynamic> toJson() => _$DataToJson(this);
+  Map<String, dynamic> toJson() => _$CollectSiteToJson(this);
+
+  /// 可观察变量 isCollect 是否收藏
+  final Rx<bool> _isCollect = false.obs;
+
+  get isCollect => _isCollect.value;
+
+  set isCollect(value) => _isCollect.value = value;
 
 }
 

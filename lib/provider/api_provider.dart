@@ -32,7 +32,7 @@ class ApiProvider extends GetConnect with BaseApiServices {
   @override
   void onInit() {
     httpClient.baseUrl = RequestAPI.baseURL;
-    httpClient.timeout = const Duration(seconds: 10);
+    httpClient.timeout = const Duration(seconds: 100);
     //httpClient.addRequestModifier((request) => null);
 
     ///请求拦截-获取Cookie作为请求头

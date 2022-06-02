@@ -4,6 +4,7 @@ abstract class Keys {
   static const String tree = 'tree';
   static const String navigation = 'navigation';
   static const String project = 'project';
+  static const String message = 'message';
   static const String me = 'me';
 
   ///设置
@@ -79,6 +80,10 @@ abstract class Keys {
  static const String releaseStartLoading='releaseStartLoading';
  static const String noMoreData='noMoreData';
  static const String loadFailed='loadFailed';
+
+ ///首页
+ static const String freshTag='freshTag';
+ static const String myCompany='myCompany';
 
 
 }

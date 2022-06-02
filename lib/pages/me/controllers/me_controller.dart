@@ -15,7 +15,7 @@ class MeController extends BaseController<Rx<PersonInfoData>> {
   @override
   Future<void> onInit() async {
     super.onInit();
-    getUserInfo();
+    //getUserInfo();
   }
 
   Future<void> getUserInfo() async {

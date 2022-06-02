@@ -10,6 +10,7 @@ abstract class Routes{
   static const coinRank='coinRank';
   static const coinList='coinList';
   static const coin='coin';
+  static const articleDetail='articleDetail';
 
 }
 extension RoutesExtension on String{

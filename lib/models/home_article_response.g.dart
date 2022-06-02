@@ -8,7 +8,7 @@ part of 'home_article_response.dart';
 
 HomeArticleResponse _$HomeArticleResponseFromJson(Map<String, dynamic> json) =>
     HomeArticleResponse(
-      Data.fromJson(json['data'] as Map<String, dynamic>),
+      HomeArticleData.fromJson(json['data'] as Map<String, dynamic>),
       json['errorCode'] as int,
       json['errorMsg'] as String,
     );
@@ -21,19 +21,21 @@ Map<String, dynamic> _$HomeArticleResponseToJson(
       'errorMsg': instance.errorMsg,
     };
 
-Data _$DataFromJson(Map<String, dynamic> json) => Data(
-      json['curPage'] as int,
-      (json['datas'] as List<dynamic>)
-          .map((e) => Datas.fromJson(e as Map<String, dynamic>))
+HomeArticleData _$HomeArticleDataFromJson(Map<String, dynamic> json) =>
+    HomeArticleData(
+      curPage: json['curPage'] as int?,
+      datas: (json['datas'] as List<dynamic>?)
+          ?.map((e) => HomeArticle.fromJson(e as Map<String, dynamic>))
           .toList(),
-      json['offset'] as int,
-      json['over'] as bool,
-      json['pageCount'] as int,
-      json['size'] as int,
-      json['total'] as int,
+      offset: json['offset'] as int?,
+      over: json['over'] as bool?,
+      pageCount: json['pageCount'] as int?,
+      size: json['size'] as int?,
+      total: json['total'] as int?,
     );
 
-Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
+Map<String, dynamic> _$HomeArticleDataToJson(HomeArticleData instance) =>
+    <String, dynamic>{
       'curPage': instance.curPage,
       'datas': instance.datas,
       'offset': instance.offset,
@@ -43,45 +45,45 @@ Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
       'total': instance.total,
     };
 
-Datas _$DatasFromJson(Map<String, dynamic> json) => Datas(
-      json['apkLink'] as String,
-      json['audit'] as int,
-      json['author'] as String,
-      json['canEdit'] as bool,
-      json['chapterId'] as int,
-      json['chapterName'] as String,
-      json['collect'] as bool,
-      json['courseId'] as int,
-      json['desc'] as String,
-      json['descMd'] as String,
-      json['envelopePic'] as String,
-      json['fresh'] as bool,
-      json['host'] as String,
-      json['id'] as int,
-      json['link'] as String,
-      json['niceDate'] as String,
-      json['niceShareDate'] as String,
-      json['origin'] as String,
-      json['prefix'] as String,
-      json['projectLink'] as String,
-      json['publishTime'] as int,
-      json['realSuperChapterId'] as int,
-      json['selfVisible'] as int,
-      json['shareDate'] as int,
-      json['shareUser'] as String,
-      json['superChapterId'] as int,
-      json['superChapterName'] as String,
-      (json['tags'] as List<dynamic>)
-          .map((e) => Tags.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      json['title'] as String,
-      json['type'] as int,
-      json['userId'] as int,
-      json['visible'] as int,
-      json['zan'] as int,
-    );
+HomeArticle _$HomeArticleFromJson(Map<String, dynamic> json) => HomeArticle()
+  ..apkLink = json['apkLink'] as String?
+  ..audit = json['audit'] as int?
+  ..author = json['author'] as String?
+  ..canEdit = json['canEdit'] as bool?
+  ..chapterId = json['chapterId'] as int?
+  ..chapterName = json['chapterName'] as String?
+  ..collect = json['collect'] as bool?
+  ..courseId = json['courseId'] as int?
+  ..desc = json['desc'] as String?
+  ..descMd = json['descMd'] as String?
+  ..envelopePic = json['envelopePic'] as String?
+  ..fresh = json['fresh'] as bool?
+  ..host = json['host'] as String?
+  ..id = json['id'] as int?
+  ..link = json['link'] as String?
+  ..niceDate = json['niceDate'] as String?
+  ..niceShareDate = json['niceShareDate'] as String?
+  ..origin = json['origin'] as String?
+  ..prefix = json['prefix'] as String?
+  ..projectLink = json['projectLink'] as String?
+  ..publishTime = json['publishTime'] as int?
+  ..realSuperChapterId = json['realSuperChapterId'] as int?
+  ..selfVisible = json['selfVisible'] as int?
+  ..shareDate = json['shareDate'] as int?
+  ..shareUser = json['shareUser'] as String?
+  ..superChapterId = json['superChapterId'] as int?
+  ..superChapterName = json['superChapterName'] as String?
+  ..tags = (json['tags'] as List<dynamic>?)
+      ?.map((e) => Tags.fromJson(e as Map<String, dynamic>))
+      .toList()
+  ..title = json['title'] as String?
+  ..type = json['type'] as int?
+  ..userId = json['userId'] as int?
+  ..visible = json['visible'] as int?
+  ..zan = json['zan'] as int?;
 
-Map<String, dynamic> _$DatasToJson(Datas instance) => <String, dynamic>{
+Map<String, dynamic> _$HomeArticleToJson(HomeArticle instance) =>
+    <String, dynamic>{
       'apkLink': instance.apkLink,
       'audit': instance.audit,
       'author': instance.author,
@@ -118,8 +120,8 @@ Map<String, dynamic> _$DatasToJson(Datas instance) => <String, dynamic>{
     };
 
 Tags _$TagsFromJson(Map<String, dynamic> json) => Tags(
-      json['name'] as String,
-      json['url'] as String,
+      name: json['name'] as String?,
+      url: json['url'] as String?,
     );
 
 Map<String, dynamic> _$TagsToJson(Tags instance) => <String, dynamic>{

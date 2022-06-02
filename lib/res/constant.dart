@@ -8,6 +8,12 @@ class Constant {
   static const String noLoading = 'noLoading';
 
 
+  ///默认图片地址
+  static const String defaultImageUrlVertical ='';
+  static const String defaultImageUrlHorizontal ='';
+
+
+
 
 
 }

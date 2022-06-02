@@ -1,6 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_wanandroid/models/login_register_response.dart';
+import 'package:flutter_wanandroid/pages/main/controllers/main_controller.dart';
 import 'package:flutter_wanandroid/pages/me/controllers/me_controller.dart';
+import 'package:flutter_wanandroid/pages/message/controllers/message_controller.dart';
 import 'package:flutter_wanandroid/provider/state/load_state.dart';
 import 'package:get/get.dart';
 import '../config/api_provider_config.dart';
@@ -14,7 +17,6 @@ import 'api_provider.dart';
 import 'base_response.dart';
 import 'error_handler.dart';
 
-
 class BaseController<T> extends GetxController with StateMixin<T> {
   ///网络请求工具
   ApiProvider provider = Get.find<APIProviderConfig>().getAPiProvider();
@@ -25,10 +27,9 @@ class BaseController<T> extends GetxController with StateMixin<T> {
   set isLogin(value) => _isLogin.value = value;
 
   ///用户信息
-  final _userInfo=UserInfo().obs;
-  get userInfo=>_userInfo.value;
-  set userInfo(value)=>_userInfo.value=value;
-
+  final _userInfo = UserInfo().obs;
+  get userInfo => _userInfo.value;
+  set userInfo(value) => _userInfo.value = value;
 
   /// 加载状态
   final _loadState = LoadState.simpleShimmerLoading.obs;
@@ -40,25 +41,50 @@ class BaseController<T> extends GetxController with StateMixin<T> {
   get httpErrorMsg => _httpErrorMsg.value;
   set httpErrorMsg(value) => _httpErrorMsg.value = value;
 
+  ///未读消息的数量
+  final _messageNum = 0.obs;
+  set messageNum(value) => _messageNum.value = value;
+  get messageNum => _messageNum.value;
+
+  //滚动控制器
+  late ScrollController scrollController;
+
+
   @override
   void onInit() {
     super.onInit();
+
+    scrollController = ScrollController();
 
     ///登陆状态改变时触发此操作
     ever(_isLogin, (callback) {
       if (isLogin) {
         EasyLoading.showSuccess(Keys.loginSuccess.tr);
-        userInfo=LoginRegisterUtils.getUserInfo();
+        userInfo = LoginRegisterUtils.getUserInfo();
         MeController meController = Get.put(MeController());
-        meController.onInit();
+        meController.getUserInfo();
+
+        MessageController messageController = Get.put(MessageController());
+        messageController.getUnReadMessageResponse();
+
+
       } else {
         EasyLoading.showSuccess(Keys.logoutContent.tr);
+        messageNum = 0;
+
         ///清除Cookie
         CookieUtils.clearCookie();
+
         ///清除用户名和密码
         LoginRegisterUtils.clearUserInfo();
       }
     });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    scrollController.dispose();
   }
 
   @override

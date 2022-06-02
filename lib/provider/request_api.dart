@@ -10,7 +10,7 @@ abstract class RequestAPI {
   /// 参数：页码，拼接在连接中，从0开始。
   ///******************************************************************/
 
-  static const String homeArticleList = '/article/list/page/json';
+  static const String homeArticleList = '/article/list/%s/json';
 
   /// **********************1.2 首页banner******************************
   /// 示例：https://www.wanandroid.com/banner/json

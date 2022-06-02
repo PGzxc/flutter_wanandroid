@@ -9,7 +9,7 @@ part of 'home_banner_response.dart';
 HomeBannerResponse _$HomeBannerResponseFromJson(Map<String, dynamic> json) =>
     HomeBannerResponse(
       (json['data'] as List<dynamic>)
-          .map((e) => Data.fromJson(e as Map<String, dynamic>))
+          .map((e) => Banner.fromJson(e as Map<String, dynamic>))
           .toList(),
       json['errorCode'] as int,
       json['errorMsg'] as String,
@@ -22,18 +22,18 @@ Map<String, dynamic> _$HomeBannerResponseToJson(HomeBannerResponse instance) =>
       'errorMsg': instance.errorMsg,
     };
 
-Data _$DataFromJson(Map<String, dynamic> json) => Data(
-      json['desc'] as String,
-      json['id'] as int,
-      json['imagePath'] as String,
-      json['isVisible'] as int,
-      json['order'] as int,
-      json['title'] as String,
-      json['type'] as int,
-      json['url'] as String,
+Banner _$BannerFromJson(Map<String, dynamic> json) => Banner(
+      desc: json['desc'] as String?,
+      id: json['id'] as int?,
+      imagePath: json['imagePath'] as String?,
+      isVisible: json['isVisible'] as int?,
+      order: json['order'] as int?,
+      title: json['title'] as String?,
+      type: json['type'] as int?,
+      url: json['url'] as String?,
     );
 
-Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
+Map<String, dynamic> _$BannerToJson(Banner instance) => <String, dynamic>{
       'desc': instance.desc,
       'id': instance.id,
       'imagePath': instance.imagePath,

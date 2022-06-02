@@ -15,6 +15,8 @@ import 'package:flutter_wanandroid/pages/setting/bindings/setting_binding.dart';
 import 'package:flutter_wanandroid/pages/setting/views/setting_view.dart';
 import 'package:flutter_wanandroid/routes/app_routes.dart';
 import 'package:get/route_manager.dart';
+import '../pages/article_webpage/bindings/article_detail_binding.dart';
+import '../pages/article_webpage/views/article_detail_page.dart';
 import '../pages/language/bindings/language_binding.dart';
 import '../pages/language/views/language_view.dart';
 import '../pages/not_found/not_found_view.dart';
@@ -80,6 +82,12 @@ class AppPages {
         page: () => const CoinRankView(),
         title: Routes.coinRank,
         binding: CoinRankBinging()),
+    GetPage(
+      name: Routes.articleDetail.nameToRoute(),
+      page: () => const ArticleDetailPage(),
+      title: Routes.articleDetail,
+      binding: ArticleDetailBinding()
+    ),
 
     ///金币
     // GetPage(
