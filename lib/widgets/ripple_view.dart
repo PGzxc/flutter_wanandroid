@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_wanandroid/res/app_theme.dart';
 
 /// 类名: ripple_view.dart
-/// 创建日期: 11/12/21 on 5:37 PM
 /// 描述: 封装InkWell点击水波纹效果组件
 
 

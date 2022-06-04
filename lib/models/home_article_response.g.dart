@@ -25,7 +25,7 @@ HomeArticleData _$HomeArticleDataFromJson(Map<String, dynamic> json) =>
     HomeArticleData(
       curPage: json['curPage'] as int?,
       datas: (json['datas'] as List<dynamic>?)
-          ?.map((e) => HomeArticle.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Article.fromJson(e as Map<String, dynamic>))
           .toList(),
       offset: json['offset'] as int?,
       over: json['over'] as bool?,
@@ -45,7 +45,7 @@ Map<String, dynamic> _$HomeArticleDataToJson(HomeArticleData instance) =>
       'total': instance.total,
     };
 
-HomeArticle _$HomeArticleFromJson(Map<String, dynamic> json) => HomeArticle()
+Article _$ArticleFromJson(Map<String, dynamic> json) => Article()
   ..apkLink = json['apkLink'] as String?
   ..audit = json['audit'] as int?
   ..author = json['author'] as String?
@@ -82,8 +82,7 @@ HomeArticle _$HomeArticleFromJson(Map<String, dynamic> json) => HomeArticle()
   ..visible = json['visible'] as int?
   ..zan = json['zan'] as int?;
 
-Map<String, dynamic> _$HomeArticleToJson(HomeArticle instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$ArticleToJson(Article instance) => <String, dynamic>{
       'apkLink': instance.apkLink,
       'audit': instance.audit,
       'author': instance.author,

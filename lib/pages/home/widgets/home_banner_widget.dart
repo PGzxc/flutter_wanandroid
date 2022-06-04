@@ -38,7 +38,7 @@ class HomeBannerWidget extends GetView<HomeController> {
                       child: CachedNetworkImageView(visible: true, imageUrl: banner.imagePath),
                       onTap: () {
                         // 构造Bean对象
-                        HomeArticle model = HomeArticle();
+                        Article model = Article();
                         model.id = banner.id;
                         model.title = banner.title;
                         model.type = banner.type;

@@ -408,7 +408,7 @@ abstract class RequestAPI {
   /// 方法: GET
   /// 参数：
   ///******************************************************************/
-  static const String wxarticleList = '/wxarticle/chapters/json';
+  static const String wxArticleList = '/wxarticle/chapters/json';
 
   /// ******************15.2 查看某个公众号历史数据 ****************
   /// 示例：https://wanandroid.com/wxarticle/list/408/1/json
@@ -417,7 +417,7 @@ abstract class RequestAPI {
   ///    - 公众号 ID：拼接在 url 中，eg:405
   /// 	 - 公众号页码：拼接在url 中，eg:1
   ///******************************************************************/
-  static const String wxarticleOneList = '/wxarticle/list/id/index/json';
+  static const String wxArticleHistoryList = '/wxarticle/list/%s/%s/json';
 
   /// ******************15.3 在某个公众号中搜索历史文章 ****************
   /// 示例：https://wanandroid.com/wxarticle/list/405/1/json?k=Java

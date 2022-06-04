@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../utils/decoration_style.dart';
-
-/// 类名: custom_point_widget.dart
-/// 创建日期: 11/26/21 on 6:29 PM
+/// 类名: custom_point_widget.dar
 /// 描述: 圆点
 
 class CustomPointWidget extends StatelessWidget {

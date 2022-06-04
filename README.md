@@ -49,6 +49,10 @@
 * 首页文章显示
 * 使用三方库webview_flutter，显示网页视图
 * 使用三方库badges。显示bottombar带消息的数量，并通过num控制badges的显示与否
+### v6.0
+* 使用google-GFSegmentTab，将导航分为：体系，常用网站，公众号三个Tab部分
+* 使用google-Stick-header，构建体系页面
+* 导航-体系/常用网站/公众号完成
 
 
 ## 五 使用的指令

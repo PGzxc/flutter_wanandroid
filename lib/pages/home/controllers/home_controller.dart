@@ -17,7 +17,7 @@ class HomeController extends BaseRefreshController {
   final homeBannerList = RxList<Banner>();
 
   ///首页文章列表
-  final homeArticleList = RxList<HomeArticle>();
+  final homeArticleList = RxList<Article>();
 
   @override
   void onInit() {
@@ -103,7 +103,7 @@ class HomeController extends BaseRefreshController {
       future: provider.get(requestUrl),
       onSuccess: (response) {
         var homeArticleData = HomeArticleData.fromJson(response);
-        List<HomeArticle>? dataList = homeArticleData.datas;
+        List<Article>? dataList = homeArticleData.datas;
         // 加载到底部判断
         var over = homeArticleData.over;
         if (over != null) {

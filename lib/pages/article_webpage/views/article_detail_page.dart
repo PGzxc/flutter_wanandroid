@@ -18,7 +18,7 @@ class ArticleDetailPage extends GetView<ArticleDetailController> {
   @override
   Widget build(BuildContext context) {
     var arguments = Get.arguments;
-    final HomeArticle model = arguments['data'];
+    final Article model = arguments['data'];
     final bool showCollect = arguments['showCollect'];
 
     return WillPopScope(
@@ -33,7 +33,7 @@ class ArticleDetailPage extends GetView<ArticleDetailController> {
     );
   }
 
-  Stack webViewContainer(BuildContext context, HomeArticle model) {
+  Stack webViewContainer(BuildContext context, Article model) {
     var url = '';
     if (model.link!.isNotEmpty) {
       url = model.link!;

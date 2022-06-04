@@ -8,7 +8,7 @@ part of 'tree_response.dart';
 
 TreeResponse _$TreeResponseFromJson(Map<String, dynamic> json) => TreeResponse(
       (json['data'] as List<dynamic>)
-          .map((e) => Data.fromJson(e as Map<String, dynamic>))
+          .map((e) => TreeItem.fromJson(e as Map<String, dynamic>))
           .toList(),
       json['errorCode'] as int,
       json['errorMsg'] as String,
@@ -21,7 +21,7 @@ Map<String, dynamic> _$TreeResponseToJson(TreeResponse instance) =>
       'errorMsg': instance.errorMsg,
     };
 
-Data _$DataFromJson(Map<String, dynamic> json) => Data(
+TreeItem _$TreeItemFromJson(Map<String, dynamic> json) => TreeItem(
       json['author'] as String,
       (json['children'] as List<dynamic>)
           .map((e) => Children.fromJson(e as Map<String, dynamic>))
@@ -39,7 +39,7 @@ Data _$DataFromJson(Map<String, dynamic> json) => Data(
       json['visible'] as int,
     );
 
-Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
+Map<String, dynamic> _$TreeItemToJson(TreeItem instance) => <String, dynamic>{
       'author': instance.author,
       'children': instance.children,
       'courseId': instance.courseId,

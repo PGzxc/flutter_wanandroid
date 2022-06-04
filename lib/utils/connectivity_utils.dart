@@ -1,7 +1,6 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 
 /// 类名: connectivity_utils.dart
-/// 创建日期: 11/11/21 on 2:57 PM
 /// 描述: 检查当前网络连接状态
 
 

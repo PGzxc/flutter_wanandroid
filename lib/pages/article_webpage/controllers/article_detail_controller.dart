@@ -181,7 +181,7 @@ class ArticleDetailController extends BaseController {
   }
 
   /// 收藏、取消收藏（站内文章）  collectInsideArticle
-  void requestCollectArticle(HomeArticle model) async {
+  void requestCollectArticle(Article model) async {
     // 获取文章列表可观察变量 isCollect 是否收藏状态
     //var currentCollectState = model.isCollect;
     var currentCollectState = model.collect;

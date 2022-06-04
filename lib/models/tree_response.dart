@@ -8,7 +8,7 @@ part 'tree_response.g.dart';
 class TreeResponse extends Object {
 
   @JsonKey(name: 'data')
-  List<Data> data;
+  List<TreeItem> data;
 
   @JsonKey(name: 'errorCode')
   int errorCode;
@@ -26,7 +26,7 @@ class TreeResponse extends Object {
 
 
 @JsonSerializable()
-class Data extends Object {
+class TreeItem extends Object {
 
   @JsonKey(name: 'author')
   String author;
@@ -67,11 +67,11 @@ class Data extends Object {
   @JsonKey(name: 'visible')
   int visible;
 
-  Data(this.author,this.children,this.courseId,this.cover,this.desc,this.id,this.lisense,this.lisenseLink,this.name,this.order,this.parentChapterId,this.userControlSetTop,this.visible,);
+  TreeItem(this.author,this.children,this.courseId,this.cover,this.desc,this.id,this.lisense,this.lisenseLink,this.name,this.order,this.parentChapterId,this.userControlSetTop,this.visible,);
 
-  factory Data.fromJson(Map<String, dynamic> srcJson) => _$DataFromJson(srcJson);
+  factory TreeItem.fromJson(Map<String, dynamic> srcJson) => _$TreeItemFromJson(srcJson);
 
-  Map<String, dynamic> toJson() => _$DataToJson(this);
+  Map<String, dynamic> toJson() => _$TreeItemToJson(this);
 
 }
 

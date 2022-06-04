@@ -13,7 +13,6 @@ import '../res/r.dart';
 import 'article_detail_app_bar_add_menu.dart';
 
 /// 类名: article_detail_web_app_bar.dart
-/// 创建日期: 12/2/21 on 3:47 PM
 /// 描述: 文章详情WebView页面 通用标题栏
 /// 左右边距12
 
@@ -31,7 +30,7 @@ class ArticleDetailWebAppBar extends GetView<ArticleDetailController>
     this.bottomLineColor,
   }) : super(key: key);
 
-  final HomeArticle model;
+  final Article model;
   final bool showCollect;
   final double opacity;
   final double appBarHeight;
@@ -169,7 +168,7 @@ class ArticleDetailWebAppBar extends GetView<ArticleDetailController>
     );
   }
 
-  Widget rightWidget(BuildContext context, HomeArticle model) {
+  Widget rightWidget(BuildContext context, Article model) {
     return Container(
       margin: const EdgeInsets.only(right: 2),
       child: Row(
@@ -213,7 +212,7 @@ class ArticleDetailWebAppBar extends GetView<ArticleDetailController>
     );
   }
 
-  void showAddMenu(BuildContext context, HomeArticle model) {
+  void showAddMenu(BuildContext context, Article model) {
     final RenderBox button =
         _addKey.currentContext!.findRenderObject()! as RenderBox;
     showPopupWindow<void>(

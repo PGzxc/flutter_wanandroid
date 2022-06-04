@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'logger/logger_util.dart';
 
 /// 类名: html_utils.dart
-/// 创建日期: 11/26/21 on 6:36 PM
 /// 描述: HTML工具类封装
 
 

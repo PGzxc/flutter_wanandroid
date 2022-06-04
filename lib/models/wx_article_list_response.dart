@@ -6,7 +6,7 @@ part 'wx_article_list_response.g.dart';
 @JsonSerializable()
 class WXArticleListResponse extends Object {
   @JsonKey(name: 'data')
-  List<Data> data;
+  List<WXItem> data;
 
   @JsonKey(name: 'errorCode')
   int errorCode;
@@ -27,47 +27,47 @@ class WXArticleListResponse extends Object {
 }
 
 @JsonSerializable()
-class Data extends Object {
+class WXItem extends Object {
   @JsonKey(name: 'author')
-  String author;
+  String? author;
 
   @JsonKey(name: 'children')
-  List<dynamic> children;
+  List<dynamic>? children;
 
   @JsonKey(name: 'courseId')
-  int courseId;
+  int? courseId;
 
   @JsonKey(name: 'cover')
-  String cover;
+  String? cover;
 
   @JsonKey(name: 'desc')
-  String desc;
+  String? desc;
 
   @JsonKey(name: 'id')
-  int id;
+  int? id;
 
   @JsonKey(name: 'lisense')
-  String lisense;
+  String? lisense;
 
   @JsonKey(name: 'lisenseLink')
-  String lisenseLink;
+  String? lisenseLink;
 
   @JsonKey(name: 'name')
-  String name;
+  String? name;
 
   @JsonKey(name: 'order')
-  int order;
+  int? order;
 
   @JsonKey(name: 'parentChapterId')
-  int parentChapterId;
+  int? parentChapterId;
 
   @JsonKey(name: 'userControlSetTop')
-  bool userControlSetTop;
+  bool? userControlSetTop;
 
   @JsonKey(name: 'visible')
-  int visible;
+  int? visible;
 
-  Data(
+  WXItem({
     this.author,
     this.children,
     this.courseId,
@@ -81,10 +81,10 @@ class Data extends Object {
     this.parentChapterId,
     this.userControlSetTop,
     this.visible,
-  );
+  });
 
-  factory Data.fromJson(Map<String, dynamic> srcJson) =>
-      _$DataFromJson(srcJson);
+  factory WXItem.fromJson(Map<String, dynamic> srcJson) =>
+      _$WXItemFromJson(srcJson);
 
-  Map<String, dynamic> toJson() => _$DataToJson(this);
+  Map<String, dynamic> toJson() => _$WXItemToJson(this);
 }

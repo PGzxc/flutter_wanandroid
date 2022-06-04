@@ -14,7 +14,7 @@ class ArticleDetailAppBarAddMenu extends StatefulWidget {
     required this.model,
   }) : super(key: key);
 
-  final HomeArticle model;
+  final Article model;
 
   @override
   _ArticleDetailAppBarAddMenuState createState() =>

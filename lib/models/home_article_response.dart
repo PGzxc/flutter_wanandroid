@@ -33,7 +33,7 @@ class HomeArticleData extends Object {
   int? curPage;
 
   @JsonKey(name: 'datas')
-  List<HomeArticle>? datas;
+  List<Article>? datas;
 
   @JsonKey(name: 'offset')
   int? offset;
@@ -67,7 +67,7 @@ class HomeArticleData extends Object {
 }
 
 @JsonSerializable()
-class HomeArticle extends Object {
+class Article extends Object {
   @JsonKey(name: 'apkLink')
   String? apkLink;
 
@@ -167,12 +167,12 @@ class HomeArticle extends Object {
   @JsonKey(name: 'zan')
   int? zan;
 
-  HomeArticle();
+  Article();
 
-  factory HomeArticle.fromJson(Map<String, dynamic> srcJson) =>
-      _$HomeArticleFromJson(srcJson);
+  factory Article.fromJson(Map<String, dynamic> srcJson) =>
+      _$ArticleFromJson(srcJson);
 
-  Map<String, dynamic> toJson() => _$HomeArticleToJson(this);
+  Map<String, dynamic> toJson() => _$ArticleToJson(this);
 
 }
 

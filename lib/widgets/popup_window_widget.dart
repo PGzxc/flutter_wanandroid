@@ -2,7 +2,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 /// 类名: popup_window_widget.dart
-/// 创建日期: 12/2/21 on 2:41 PM
 /// 描述: 1.去除了IntrinsicWidth限制，添加了默认蒙版。
 /// 2.简化position计算。
 /// https://github.com/elileo1/flutter_travel_friends/blob/master/lib/widget/PopupWindow.dart

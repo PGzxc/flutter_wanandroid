@@ -17,7 +17,7 @@ import 'api_provider.dart';
 import 'base_response.dart';
 import 'error_handler.dart';
 
-class BaseController<T> extends GetxController with StateMixin<T> {
+class BaseController<T> extends GetxController with StateMixin<T>,GetSingleTickerProviderStateMixin {
   ///网络请求工具
   ApiProvider provider = Get.find<APIProviderConfig>().getAPiProvider();
 

@@ -3,7 +3,6 @@ import '../utils/formatter/customized_length_formatter.dart';
 import '../utils/formatter/customized_text_formatter.dart';
 
 /// 类名: edit_widget.dart
-/// 创建日期: 12/7/21 on 6:11 PM
 /// 描述: 输入框样式，左边图标，右边输入框
 
 class EditWidget extends StatefulWidget {

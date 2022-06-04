@@ -15,12 +15,10 @@ import '../res/gaps.dart';
 import '../utils/decoration_style.dart';
 import '../utils/html_utils.dart';
 import 'cached_network_image_view.dart';
+/// 描述: 导航-微信 item Widget
 
-/// 类名: search_list_item_widget.dart
-/// 描述: 搜索结果ListView item Widget
-
-class SearchListItemWidget extends GetView<BaseController> {
-  const SearchListItemWidget({
+class WXListItemWidget extends GetView<BaseController> {
+  const WXListItemWidget({
     Key? key,
     required this.dataList,
     required this.index,
@@ -51,26 +49,15 @@ class SearchListItemWidget extends GetView<BaseController> {
             ),
         child: GFCard(
           color: context.colorItemBackground,
-          padding: const EdgeInsets.all(5),
-          margin: const EdgeInsets.all(5),
-          colorFilter:
-              ColorFilter.mode(Colors.red.withOpacity(0.67), BlendMode.darken),
+          padding: const EdgeInsets.all(3),
+          margin: const EdgeInsets.all(8),
+          colorFilter: ColorFilter.mode(Colors.red.withOpacity(0.67), BlendMode.darken),
           boxFit: BoxFit.cover,
           content: Column(
             children: [
-              authorShareTime(context),
-              Gaps.vGap15,
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(child: leftContainer(context)),
-                  Gaps.hGap15,
-                  rightContainer(),
-                ],
-              ),
-              Gaps.vGap10,
               chapterCollect(context),
+              authorShareTime(context),
+              leftContainer(context),
             ],
           ),
         ));
@@ -83,93 +70,12 @@ class SearchListItemWidget extends GetView<BaseController> {
     );
   }
 
-  /// 图片
-  /// CachedNetworkImage可以直接使用或通过ImageProvider使用。
-  /// CachedNetworkImage作为CachedNetworkImageProvider对Web的支持最小。它目前不包括缓存
-  Widget rightContainer() {
-    return CachedNetworkImageView(
-      visible: (dataList[index].envelopePic != null &&
-              dataList[index].envelopePic!.isNotEmpty)
-          ? true
-          : false,
-      borderRadius: 6,
-      imageUrl: dataList[index].envelopePic ?? Constant.defaultImageUrlVertical,
-      // 测试errorWidget效果
-      // imageUrl: Constant.placeHolderImageUrl.replaceFirst(RegExp('size1'), '100x120'),
-      width: 90,
-      height: 130,
-      fit: BoxFit.cover,
-      // isCircle: true,
-      borderColor: Colors.red.withOpacity(0.2),
-      borderWidth: 1,
-    );
-  }
-
   /// 作者、时间
   Widget authorShareTime(BuildContext context) {
     return Row(
       children: [
-        refreshTag(context),
-        chapterTag(context),
-        author(context),
-        const Spacer(),
         niceDate(context),
       ],
-    );
-  }
-
-  /// 新
-  Widget refreshTag(BuildContext context) {
-    return Visibility(
-      visible: dataList[index].fresh ?? false,
-      child: Container(
-        margin: const EdgeInsets.only(right: 10),
-        padding: const EdgeInsets.symmetric(
-          horizontal: 3,
-          vertical: 2,
-        ),
-        decoration: DecorationStyle.imageDecorationCircle(
-          color: Colors.red,
-          borderRadius: 3,
-        ),
-        child: Text(
-          Keys.freshTag.tr,
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 10,
-          ),
-        ),
-      ),
-    );
-  }
-
-  /// tags
-  Widget chapterTag(BuildContext context) {
-    return Visibility(
-      visible:
-          (dataList[index].tags != null && dataList[index].tags!.isNotEmpty)
-              ? true
-              : false,
-      child: Container(
-        margin: const EdgeInsets.only(right: 10),
-        padding: const EdgeInsets.symmetric(
-          horizontal: 3,
-          vertical: 2,
-        ),
-        decoration: DecorationStyle.imageDecorationCircle(
-          color: Colors.blueAccent,
-          borderRadius: 3,
-        ),
-        child: Text(
-          (dataList[index].tags != null && dataList[index].tags!.isNotEmpty)
-              ? dataList[index].tags![0].name!
-              : "",
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 10,
-          ),
-        ),
-      ),
     );
   }
 
@@ -219,12 +125,6 @@ class SearchListItemWidget extends GetView<BaseController> {
       children: [
         Visibility(
           visible: dataList[index].title!.isNotEmpty ? true : false,
-          // child: Text(
-          //   model?.title ?? "",
-          //   style: context.bodyText1Style?.copyWith(
-          //     fontSize: 15,
-          //   ),
-          // ),
           child: Html(
             data: HtmlUtils.html2HighLight(
               html: dataList[index].title!,
@@ -242,7 +142,7 @@ class SearchListItemWidget extends GetView<BaseController> {
           visible: dataList[index].desc!.isNotEmpty ? true : false,
           child: Column(
             children: [
-              Gaps.vGap8,
+              //Gaps.vGap8,
               Text(
                 dataList[index].desc ?? "",
                 style: context.bodyText2Style?.copyWith(
@@ -280,21 +180,7 @@ class SearchListItemWidget extends GetView<BaseController> {
             ),
           ),
         ),
-        //  Container(
-        //   alignment: Alignment.center,
-        //   height: 15,
-        //   child:  const VerticalDivider(
-        //     width: 10,
-        //     thickness: 1,
-        //     color: Colors.blue,
-        //   ),
-        // ),
         Gaps.hGap10,
-        // const CustomPointWidget(
-        //   thickness: 3,
-        //   color: Colors.red,
-        // ),
-
         Container(
           padding: const EdgeInsets.symmetric(
             horizontal: 3,
@@ -312,7 +198,6 @@ class SearchListItemWidget extends GetView<BaseController> {
             ),
           ),
         ),
-
         const Spacer(),
         RippleView(
           color: Colors.transparent,

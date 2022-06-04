@@ -11,6 +11,7 @@ import 'package:flutter_wanandroid/pages/main/views/main_view.dart';
 import 'package:flutter_wanandroid/pages/me/bindings/me_binding.dart';
 import 'package:flutter_wanandroid/pages/me/controllers/me_controller.dart';
 import 'package:flutter_wanandroid/pages/me/views/me_view.dart';
+import 'package:flutter_wanandroid/pages/navigation/bindings/navigation_binding.dart';
 import 'package:flutter_wanandroid/pages/setting/bindings/setting_binding.dart';
 import 'package:flutter_wanandroid/pages/setting/views/setting_view.dart';
 import 'package:flutter_wanandroid/routes/app_routes.dart';
@@ -39,7 +40,9 @@ class AppPages {
         name: Routes.main.nameToRoute(),
         page: () => const MainView(),
         title: Routes.main,
-        binding: MainBinding()),
+        bindings: [MainBinding(),NavigationBinding()],
+       /// binding: MainBinding()
+    ),
 
     ///设置页面
     GetPage(

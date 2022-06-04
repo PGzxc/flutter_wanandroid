@@ -10,7 +10,7 @@ WXArticleListResponse _$WXArticleListResponseFromJson(
         Map<String, dynamic> json) =>
     WXArticleListResponse(
       (json['data'] as List<dynamic>)
-          .map((e) => Data.fromJson(e as Map<String, dynamic>))
+          .map((e) => WXItem.fromJson(e as Map<String, dynamic>))
           .toList(),
       json['errorCode'] as int,
       json['errorMsg'] as String,
@@ -24,23 +24,23 @@ Map<String, dynamic> _$WXArticleListResponseToJson(
       'errorMsg': instance.errorMsg,
     };
 
-Data _$DataFromJson(Map<String, dynamic> json) => Data(
-      json['author'] as String,
-      json['children'] as List<dynamic>,
-      json['courseId'] as int,
-      json['cover'] as String,
-      json['desc'] as String,
-      json['id'] as int,
-      json['lisense'] as String,
-      json['lisenseLink'] as String,
-      json['name'] as String,
-      json['order'] as int,
-      json['parentChapterId'] as int,
-      json['userControlSetTop'] as bool,
-      json['visible'] as int,
+WXItem _$WXItemFromJson(Map<String, dynamic> json) => WXItem(
+      author: json['author'] as String?,
+      children: json['children'] as List<dynamic>?,
+      courseId: json['courseId'] as int?,
+      cover: json['cover'] as String?,
+      desc: json['desc'] as String?,
+      id: json['id'] as int?,
+      lisense: json['lisense'] as String?,
+      lisenseLink: json['lisenseLink'] as String?,
+      name: json['name'] as String?,
+      order: json['order'] as int?,
+      parentChapterId: json['parentChapterId'] as int?,
+      userControlSetTop: json['userControlSetTop'] as bool?,
+      visible: json['visible'] as int?,
     );
 
-Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
+Map<String, dynamic> _$WXItemToJson(WXItem instance) => <String, dynamic>{
       'author': instance.author,
       'children': instance.children,
       'courseId': instance.courseId,
