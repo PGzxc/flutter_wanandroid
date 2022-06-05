@@ -70,7 +70,7 @@ class MessageUnreadListController extends BaseRefreshController {
     if (refreshState == RefreshState.refresh ||
         refreshState == RefreshState.first) {
       /// 下拉刷新
-      currentPage = 0;
+      currentPage = 1;
     }
     if (refreshState == RefreshState.loadMore) {
       /// 上滑加载更多
