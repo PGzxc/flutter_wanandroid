@@ -392,14 +392,14 @@ abstract class RequestAPI {
   /// 方法: GET
   /// 参数：
   ///******************************************************************/
-  static const String messageReadList = '/message/lg/readed_list/index/json';
+  static const String messageReadList = '/message/lg/readed_list/%s/json';
 
   /// ******************14.3 未读消息列表 ****************
   /// 示例：https://wanandroid.com/message/lg/unread_list/页码/json
   /// 方法: GET
   /// 参数：
   ///******************************************************************/
-  static const String messageUnReadList = '/message/lg/unread_list/index/json';
+  static const String messageUnReadList = '/message/lg/unread_list/%s/json';
 
   ///15- 公众号
 

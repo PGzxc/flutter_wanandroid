@@ -8,9 +8,7 @@ import '../../res/gaps.dart';
 import '../../res/r.dart';
 import 'load_state.dart';
 
-
 /// 类名: load_error_page.dart
-/// 创建日期: 11/16/21 on 6:21 PM
 /// 描述: 加载错误页面
 
 
@@ -39,10 +37,10 @@ class EmptyErrorStatePage extends StatelessWidget {
             alignment: Alignment.center,
             child: Column(
               mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Gaps.vGap150,
+                //Gaps.vGap150,
                 Container(
                   child: Lottie.asset(
                     loadState == LoadState.empty

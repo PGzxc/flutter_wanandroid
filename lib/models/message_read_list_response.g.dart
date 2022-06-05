@@ -9,7 +9,7 @@ part of 'message_read_list_response.dart';
 MessageReadListResponse _$MessageReadListResponseFromJson(
         Map<String, dynamic> json) =>
     MessageReadListResponse(
-      Data.fromJson(json['data'] as Map<String, dynamic>),
+      MessageData.fromJson(json['data'] as Map<String, dynamic>),
       json['errorCode'] as int,
       json['errorMsg'] as String,
     );
@@ -22,19 +22,20 @@ Map<String, dynamic> _$MessageReadListResponseToJson(
       'errorMsg': instance.errorMsg,
     };
 
-Data _$DataFromJson(Map<String, dynamic> json) => Data(
-      json['curPage'] as int,
-      (json['datas'] as List<dynamic>)
-          .map((e) => Datas.fromJson(e as Map<String, dynamic>))
+MessageData _$MessageDataFromJson(Map<String, dynamic> json) => MessageData(
+      curPage: json['curPage'] as int?,
+      datas: (json['datas'] as List<dynamic>?)
+          ?.map((e) => Message.fromJson(e as Map<String, dynamic>))
           .toList(),
-      json['offset'] as int,
-      json['over'] as bool,
-      json['pageCount'] as int,
-      json['size'] as int,
-      json['total'] as int,
+      offset: json['offset'] as int?,
+      over: json['over'] as bool?,
+      pageCount: json['pageCount'] as int?,
+      size: json['size'] as int?,
+      total: json['total'] as int?,
     );
 
-Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
+Map<String, dynamic> _$MessageDataToJson(MessageData instance) =>
+    <String, dynamic>{
       'curPage': instance.curPage,
       'datas': instance.datas,
       'offset': instance.offset,
@@ -44,7 +45,7 @@ Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
       'total': instance.total,
     };
 
-Datas _$DatasFromJson(Map<String, dynamic> json) => Datas(
+Message _$MessageFromJson(Map<String, dynamic> json) => Message(
       json['category'] as int,
       json['date'] as int,
       json['fromUser'] as String,
@@ -60,7 +61,7 @@ Datas _$DatasFromJson(Map<String, dynamic> json) => Datas(
       json['userId'] as int,
     );
 
-Map<String, dynamic> _$DatasToJson(Datas instance) => <String, dynamic>{
+Map<String, dynamic> _$MessageToJson(Message instance) => <String, dynamic>{
       'category': instance.category,
       'date': instance.date,
       'fromUser': instance.fromUser,

@@ -58,8 +58,7 @@ class NavigationSiteView extends GetView<NavigationSiteController> {
                 : Colors.grey.withOpacity(0.1),
             child: InkWell(
               /// 点击导航item切换当前导航item值currentNavigation
-              onTap: () =>
-                  controller.changeNavigation(navigationGroupList[index]),
+              onTap: () => controller.changeNavigation(navigationGroupList[index]),
               child: Container(
                 height: 40,
                 alignment: Alignment.center,

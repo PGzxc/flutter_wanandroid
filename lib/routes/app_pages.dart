@@ -11,6 +11,8 @@ import 'package:flutter_wanandroid/pages/main/views/main_view.dart';
 import 'package:flutter_wanandroid/pages/me/bindings/me_binding.dart';
 import 'package:flutter_wanandroid/pages/me/controllers/me_controller.dart';
 import 'package:flutter_wanandroid/pages/me/views/me_view.dart';
+import 'package:flutter_wanandroid/pages/message/bindings/message_detail_web_binding.dart';
+import 'package:flutter_wanandroid/pages/message/views/message_detail_web_page.dart';
 import 'package:flutter_wanandroid/pages/navigation/bindings/navigation_binding.dart';
 import 'package:flutter_wanandroid/pages/setting/bindings/setting_binding.dart';
 import 'package:flutter_wanandroid/pages/setting/views/setting_view.dart';
@@ -20,6 +22,7 @@ import '../pages/article_webpage/bindings/article_detail_binding.dart';
 import '../pages/article_webpage/views/article_detail_page.dart';
 import '../pages/language/bindings/language_binding.dart';
 import '../pages/language/views/language_view.dart';
+import '../pages/message/bindings/message_binding.dart';
 import '../pages/not_found/not_found_view.dart';
 import '../pages/theme/bindings/theme_binding.dart';
 import '../pages/theme/views/theme_view.dart';
@@ -32,7 +35,7 @@ class AppPages {
   static String init = Routes.main.nameToRoute();
 
   static final unknownRoute =
-      GetPage(name: Routes.notFound.nameToRoute(), page: () => NotFound());
+      GetPage(name: Routes.notFound.nameToRoute(), page: () => const NotFound());
 
   static final routes = [
     ///主界面
@@ -40,7 +43,7 @@ class AppPages {
         name: Routes.main.nameToRoute(),
         page: () => const MainView(),
         title: Routes.main,
-        bindings: [MainBinding(),NavigationBinding()],
+        bindings: [MainBinding(),NavigationBinding(),MessageBinding()],
        /// binding: MainBinding()
     ),
 
@@ -90,6 +93,12 @@ class AppPages {
       page: () => const ArticleDetailPage(),
       title: Routes.articleDetail,
       binding: ArticleDetailBinding()
+    ),
+    GetPage(
+        name: Routes.messageWebView.nameToRoute(),
+        page: () => const MessageDetailWebPage(),
+        title: Routes.messageWebView,
+        binding: MessageDetailWebBinding()
     ),
 
     ///金币

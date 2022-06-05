@@ -6,9 +6,8 @@ part 'message_read_list_response.g.dart';
 
 @JsonSerializable()
 class MessageReadListResponse extends Object {
-
   @JsonKey(name: 'data')
-  Data data;
+  MessageData data;
 
   @JsonKey(name: 'errorCode')
   int errorCode;
@@ -16,51 +15,59 @@ class MessageReadListResponse extends Object {
   @JsonKey(name: 'errorMsg')
   String errorMsg;
 
-  MessageReadListResponse(this.data,this.errorCode,this.errorMsg,);
+  MessageReadListResponse(
+    this.data,
+    this.errorCode,
+    this.errorMsg,
+  );
 
-  factory MessageReadListResponse.fromJson(Map<String, dynamic> srcJson) => _$MessageReadListResponseFromJson(srcJson);
+  factory MessageReadListResponse.fromJson(Map<String, dynamic> srcJson) =>
+      _$MessageReadListResponseFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$MessageReadListResponseToJson(this);
-
 }
 
-
 @JsonSerializable()
-class Data extends Object {
-
+class MessageData extends Object {
   @JsonKey(name: 'curPage')
-  int curPage;
+  int? curPage;
 
   @JsonKey(name: 'datas')
-  List<Datas> datas;
+  List<Message>? datas;
 
   @JsonKey(name: 'offset')
-  int offset;
+  int? offset;
 
   @JsonKey(name: 'over')
-  bool over;
+  bool? over;
 
   @JsonKey(name: 'pageCount')
-  int pageCount;
+  int? pageCount;
 
   @JsonKey(name: 'size')
-  int size;
+  int? size;
 
   @JsonKey(name: 'total')
-  int total;
+  int? total;
 
-  Data(this.curPage,this.datas,this.offset,this.over,this.pageCount,this.size,this.total,);
+  MessageData({
+    this.curPage,
+    this.datas,
+    this.offset,
+    this.over,
+    this.pageCount,
+    this.size,
+    this.total,
+  });
 
-  factory Data.fromJson(Map<String, dynamic> srcJson) => _$DataFromJson(srcJson);
+  factory MessageData.fromJson(Map<String, dynamic> srcJson) =>
+      _$MessageDataFromJson(srcJson);
 
-  Map<String, dynamic> toJson() => _$DataToJson(this);
-
+  Map<String, dynamic> toJson() => _$MessageDataToJson(this);
 }
 
-
 @JsonSerializable()
-class Datas extends Object {
-
+class Message extends Object {
   @JsonKey(name: 'category')
   int category;
 
@@ -100,12 +107,24 @@ class Datas extends Object {
   @JsonKey(name: 'userId')
   int userId;
 
-  Datas(this.category,this.date,this.fromUser,this.fromUserId,this.fullLink,this.id,this.isRead,this.link,this.message,this.niceDate,this.tag,this.title,this.userId,);
+  Message(
+    this.category,
+    this.date,
+    this.fromUser,
+    this.fromUserId,
+    this.fullLink,
+    this.id,
+    this.isRead,
+    this.link,
+    this.message,
+    this.niceDate,
+    this.tag,
+    this.title,
+    this.userId,
+  );
 
-  factory Datas.fromJson(Map<String, dynamic> srcJson) => _$DatasFromJson(srcJson);
+  factory Message.fromJson(Map<String, dynamic> srcJson) =>
+      _$MessageFromJson(srcJson);
 
-  Map<String, dynamic> toJson() => _$DatasToJson(this);
-
+  Map<String, dynamic> toJson() => _$MessageToJson(this);
 }
-
-

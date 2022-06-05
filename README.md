@@ -53,6 +53,12 @@
 * 使用google-GFSegmentTab，将导航分为：体系，常用网站，公众号三个Tab部分
 * 使用google-Stick-header，构建体系页面
 * 导航-体系/常用网站/公众号完成
+### v7.0
+* 使用google-GFSegmentTab，将导航分为：未读消息和已读消息两个部分
+* 填充：未读消息和已读消息列表
+* 在BaseController中根据用户是否已经登陆请求数据接口，展示消息数据
+* 将MessageControlLer中读取未读消息的数据，移动到未读消息控制器中，在数据请求到同时调用此接口
+
 
 
 ## 五 使用的指令
@@ -78,6 +84,11 @@ flutter build apk --split-per-abi
 * pull_to_refresh：https://pub.flutter-io.cn/packages/pull_to_refresh
 * lottie：https://pub.flutter-io.cn/packages/lottie
 * sprintf：https://pub.flutter-io.cn/packages/sprintf
+* shimmer：https://pub.flutter-io.cn/packages/shimmer
+* cached_network_image：https://pub.flutter-io.cn/packages/cached_network_image
+* flutter_html：https://pub.flutter-io.cn/packages/webview_flutter
+* webview_flutter：https://pub.flutter-io.cn/packages/webview_flutter
+* badges：https://pub.flutter-io.cn/packages/badges
 
 
 

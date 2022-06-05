@@ -42,45 +42,45 @@ class MainView extends GetView<MainController> {
   // }
 
   AppBar? _buildAppBar() {
-    // return AppBar(
-    //   centerTitle: true,
-    //   title: Text("${controller.currentTitle}"),
-    //   actions: [
-    //     (controller.currentTitle == Keys.me.tr)
-    //         ? IconButton(
-    //             icon: const Icon(Icons.settings),
-    //             onPressed: () {
-    //               Get.toNamed(Routes.setting);
-    //             },
-    //           )
-    //         : IconButton(
-    //             icon: const Icon(Icons.search),
-    //             onPressed: () {},
-    //           )
-    //   ],
-    // );
+    return AppBar(
+      centerTitle: true,
+      title: Text("${controller.currentTitle}"),
+      actions: [
+        (controller.currentTitle == Keys.me.tr)
+            ? IconButton(
+                icon: const Icon(Icons.settings),
+                onPressed: () {
+                  Get.toNamed(Routes.setting);
+                },
+              )
+            : IconButton(
+                icon: const Icon(Icons.search),
+                onPressed: () {},
+              )
+      ],
+    );
 
-    if (controller.currentTitle == Keys.navigation.tr) {
-      return null;
-    } else {
-      return AppBar(
-        centerTitle: true,
-        title: Text("${controller.currentTitle}"),
-        actions: [
-          (controller.currentTitle == Keys.me.tr)
-              ? IconButton(
-                  icon: const Icon(Icons.settings),
-                  onPressed: () {
-                    Get.toNamed(Routes.setting);
-                  },
-                )
-              : IconButton(
-                  icon: const Icon(Icons.search),
-                  onPressed: () {},
-                )
-        ],
-      );
-    }
+    // if (controller.currentTitle == Keys.navigation.tr) {
+    //   return null;
+    // } else {
+    //   return AppBar(
+    //     centerTitle: true,
+    //     title: Text("${controller.currentTitle}"),
+    //     actions: [
+    //       (controller.currentTitle == Keys.me.tr)
+    //           ? IconButton(
+    //               icon: const Icon(Icons.settings),
+    //               onPressed: () {
+    //                 Get.toNamed(Routes.setting);
+    //               },
+    //             )
+    //           : IconButton(
+    //               icon: const Icon(Icons.search),
+    //               onPressed: () {},
+    //             )
+    //     ],
+    //   );
+    // }
 
     // if (controller.currentTitle == Keys.home.tr ||
     //     controller.currentTitle == Keys.me.tr) {

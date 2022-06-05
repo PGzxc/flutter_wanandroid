@@ -4,6 +4,8 @@ import 'package:flutter_wanandroid/models/login_register_response.dart';
 import 'package:flutter_wanandroid/pages/main/controllers/main_controller.dart';
 import 'package:flutter_wanandroid/pages/me/controllers/me_controller.dart';
 import 'package:flutter_wanandroid/pages/message/controllers/message_controller.dart';
+import 'package:flutter_wanandroid/pages/message/controllers/message_read_list_controller.dart';
+import 'package:flutter_wanandroid/pages/message/controllers/message_unread_list_controller.dart';
 import 'package:flutter_wanandroid/provider/state/load_state.dart';
 import 'package:get/get.dart';
 import '../config/api_provider_config.dart';
@@ -64,13 +66,26 @@ class BaseController<T> extends GetxController with StateMixin<T>,GetSingleTicke
         MeController meController = Get.put(MeController());
         meController.getUserInfo();
 
-        MessageController messageController = Get.put(MessageController());
-        messageController.getUnReadMessageResponse();
+        // MessageController messageController = Get.put(MessageController());
+        // messageController.getUnReadMessageResponse();
+
+        ///已读消息列表刷新数据
+        MessageReadListController messageReadListController=Get.put(MessageReadListController());
+        messageReadListController.onFirstInMessageReadData();
+        ///未读消息列表刷新数据
+        MessageUnreadListController messageUnreadListController=Get.put(MessageUnreadListController());
+        messageUnreadListController.onFirstInMessageUnReadData();
 
 
       } else {
         EasyLoading.showSuccess(Keys.logoutContent.tr);
         messageNum = 0;
+        ///已读消息列表刷新数据
+        MessageReadListController messageReadListController=Get.put(MessageReadListController());
+        messageReadListController.onFirstInMessageReadData();
+        ///未读消息列表刷新数据
+        MessageUnreadListController messageUnreadListController=Get.put(MessageUnreadListController());
+        messageUnreadListController.onFirstInMessageUnReadData();
 
         ///清除Cookie
         CookieUtils.clearCookie();

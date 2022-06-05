@@ -11,6 +11,7 @@ abstract class Routes{
   static const coinList='coinList';
   static const coin='coin';
   static const articleDetail='articleDetail';
+  static const messageWebView='messageWebView';
 
 }
 extension RoutesExtension on String{
