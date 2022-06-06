@@ -11,9 +11,12 @@
 * Dart: 2.17.1
 * .gitignore：使用的Dart类型
 
-## 三 项目预览
+## 三 下载及项目预览
 
-项目预览
+### APK下载
+![][w-download]
+
+### 项目预览
 
 | ![][w-1] | ![][w-2]  | ![][w-3] | ![][w-4] |
 | -------- | --------- | -------- | -------- |
@@ -99,6 +102,9 @@ flutter build apk --split-per-abi
 * webview_flutter：https://pub.flutter-io.cn/packages/webview_flutter
 * badges：https://pub.flutter-io.cn/packages/badges
 
+
+
+[w-download]:https://fastly.jsdelivr.net/gh/PGzxc/CDN@master/apps/wanandroid-download.png
 
 [w-1]:https://fastly.jsdelivr.net/gh/PGzxc/CDN@master/blog-resume/w_login.png
 [w-2]:https://fastly.jsdelivr.net/gh/PGzxc/CDN@master/blog-resume/w_register.png
