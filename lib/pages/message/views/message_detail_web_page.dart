@@ -47,14 +47,14 @@ class MessageDetailWebPage extends GetView<MessageDetailWebController> {
           },
           // 页面开始加载时
           onPageStarted: (String url) async {
-            controller.onPageStarted(url, model.link ?? "");
+            controller.onPageStarted(url, model.link);
           },
           onProgress: (int progress) {
             // WebView加载页面进度
             controller.updateWebProgress(progress);
           },
           onPageFinished: (url) async {
-            controller.onPageFinished(url, model.link ?? "");
+            controller.onPageFinished(url, model.link);
           },
           navigationDelegate: (NavigationRequest request) {
             if (!request.url.contains('http')) {
@@ -63,7 +63,7 @@ class MessageDetailWebPage extends GetView<MessageDetailWebController> {
             return NavigationDecision.navigate;
           },
           onWebResourceError: (WebResourceError error) {
-            controller.onWebResourceError(error, url, model.link ?? "");
+            controller.onWebResourceError(error, url, model.link);
           },
         ),
         Obx(() {

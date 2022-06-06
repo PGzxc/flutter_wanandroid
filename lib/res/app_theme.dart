@@ -85,7 +85,7 @@ extension ThemeExtension on BuildContext {
 
   //WrapChip背景填充色
   Color? get colorItemBackground {
-    return Get.isDarkMode ? Colors.black12.withOpacity(0.2) : Colors.white.withOpacity(0.2);
+    return Get.isDarkMode ? Colors.black12.withOpacity(0.3) : Colors.white.withOpacity(0.8);
   }
 
   //WrapChip背景填充色

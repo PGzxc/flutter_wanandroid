@@ -24,7 +24,7 @@ class MeView extends GetView<MeController> {
   @override
   Widget build(BuildContext context) {
     return Obx(
-        () => ListView(children: [_buildHeadInfo(context), _buildCategory()]));
+        () => ListView(children: [_buildHeadInfo(context), _buildCategory(context)]));
   }
 
   ///me-head信息
@@ -92,7 +92,7 @@ class MeView extends GetView<MeController> {
             )));
   }
 
-  Widget _buildCategory() {
+  Widget _buildCategory(BuildContext context) {
     List gfComponents = [
       {
         'title': Keys.meTools.tr,
@@ -151,6 +151,7 @@ class MeView extends GetView<MeController> {
           GFTypography(
             text: Keys.meCommonTools.tr,
             type: GFTypographyType.typo5,
+            textColor: context.appIconColor,
             //dividerWidth: 25,
             dividerColor: Color(0xFF19CA4B),
           ),

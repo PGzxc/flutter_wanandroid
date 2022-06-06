@@ -33,7 +33,7 @@ class MessageView extends GetView<MessageController> {
   Widget _buildTabsWidget(){
     return  GFSegmentTabs(
         width: Get.width,
-        height: 40,
+        //height: 30,
         //controller: controller.tabController,
         tabController: controller.tabController,
         tabBarColor: GFColors.LIGHT,

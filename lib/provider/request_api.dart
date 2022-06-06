@@ -90,7 +90,7 @@ abstract class RequestAPI {
   /// 参数：无
   ///******************************************************************/
 
-  static const String projectList = 'project/tree/json';
+  static const String projectTreeList = '/project/tree/json';
 
   /// **********************4.2 项目列表数据******************************
   /// 示例：https://www.wanandroid.com/project/list/1/json?cid=294
@@ -100,7 +100,7 @@ abstract class RequestAPI {
   /// 	- 页码：拼接在链接中，从1开始
   ///******************************************************************/
 
-  static const String projectArticleList = 'project/list/index/json';
+  static const String projectArticleList = '/project/list/%s/json?cid=%s';
 
   ///5- 登陆与注册
 

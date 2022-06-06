@@ -1,28 +1,29 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'project_response.dart';
+part of 'project_tree_response.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-ProjectResponse _$ProjectResponseFromJson(Map<String, dynamic> json) =>
-    ProjectResponse(
+ProjectTreeResponse _$ProjectTreeResponseFromJson(Map<String, dynamic> json) =>
+    ProjectTreeResponse(
       (json['data'] as List<dynamic>)
-          .map((e) => Data.fromJson(e as Map<String, dynamic>))
+          .map((e) => Project.fromJson(e as Map<String, dynamic>))
           .toList(),
       json['errorCode'] as int,
       json['errorMsg'] as String,
     );
 
-Map<String, dynamic> _$ProjectResponseToJson(ProjectResponse instance) =>
+Map<String, dynamic> _$ProjectTreeResponseToJson(
+        ProjectTreeResponse instance) =>
     <String, dynamic>{
       'data': instance.data,
       'errorCode': instance.errorCode,
       'errorMsg': instance.errorMsg,
     };
 
-Data _$DataFromJson(Map<String, dynamic> json) => Data(
+Project _$ProjectFromJson(Map<String, dynamic> json) => Project(
       json['author'] as String,
       json['children'] as List<dynamic>,
       json['courseId'] as int,
@@ -38,7 +39,7 @@ Data _$DataFromJson(Map<String, dynamic> json) => Data(
       json['visible'] as int,
     );
 
-Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
+Map<String, dynamic> _$ProjectToJson(Project instance) => <String, dynamic>{
       'author': instance.author,
       'children': instance.children,
       'courseId': instance.courseId,

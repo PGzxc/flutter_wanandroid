@@ -69,7 +69,7 @@ class MessageListItemWidget extends GetView<BaseController> {
   }
 
   Widget leftContainer(BuildContext context) {
-    return Text(dataList[index].message);
+    return SizedBox(width: Get.width,child: Text(dataList[index].message));
   }
 
   // /// 作者、时间
@@ -82,7 +82,8 @@ class MessageListItemWidget extends GetView<BaseController> {
   /// tags
   Widget chapterTag(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(right: 10),
+      width: Get.width,
+      margin: const EdgeInsets.only(right: 0),
       padding: const EdgeInsets.symmetric(
         horizontal: 3,
         vertical: 2,

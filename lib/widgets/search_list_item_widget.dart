@@ -53,8 +53,7 @@ class SearchListItemWidget extends GetView<BaseController> {
           color: context.colorItemBackground,
           padding: const EdgeInsets.all(5),
           margin: const EdgeInsets.all(5),
-          colorFilter:
-              ColorFilter.mode(Colors.red.withOpacity(0.67), BlendMode.darken),
+          colorFilter:ColorFilter.mode(Colors.red.withOpacity(0.2), BlendMode.darken),
           boxFit: BoxFit.cover,
           content: Column(
             children: [

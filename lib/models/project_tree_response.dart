@@ -1,14 +1,14 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'project_response.g.dart';
+part 'project_tree_response.g.dart';
 
 ///4-4.1 项目分类
 
 @JsonSerializable()
-class ProjectResponse extends Object {
+class ProjectTreeResponse extends Object {
 
   @JsonKey(name: 'data')
-  List<Data> data;
+  List<Project> data;
 
   @JsonKey(name: 'errorCode')
   int errorCode;
@@ -16,17 +16,17 @@ class ProjectResponse extends Object {
   @JsonKey(name: 'errorMsg')
   String errorMsg;
 
-  ProjectResponse(this.data,this.errorCode,this.errorMsg,);
+  ProjectTreeResponse(this.data,this.errorCode,this.errorMsg,);
 
-  factory ProjectResponse.fromJson(Map<String, dynamic> srcJson) => _$ProjectResponseFromJson(srcJson);
+  factory ProjectTreeResponse.fromJson(Map<String, dynamic> srcJson) => _$ProjectTreeResponseFromJson(srcJson);
 
-  Map<String, dynamic> toJson() => _$ProjectResponseToJson(this);
+  Map<String, dynamic> toJson() => _$ProjectTreeResponseToJson(this);
 
 }
 
 
 @JsonSerializable()
-class Data extends Object {
+class Project extends Object {
 
   @JsonKey(name: 'author')
   String author;
@@ -67,11 +67,11 @@ class Data extends Object {
   @JsonKey(name: 'visible')
   int visible;
 
-  Data(this.author,this.children,this.courseId,this.cover,this.desc,this.id,this.lisense,this.lisenseLink,this.name,this.order,this.parentChapterId,this.userControlSetTop,this.visible,);
+  Project(this.author,this.children,this.courseId,this.cover,this.desc,this.id,this.lisense,this.lisenseLink,this.name,this.order,this.parentChapterId,this.userControlSetTop,this.visible,);
 
-  factory Data.fromJson(Map<String, dynamic> srcJson) => _$DataFromJson(srcJson);
+  factory Project.fromJson(Map<String, dynamic> srcJson) => _$ProjectFromJson(srcJson);
 
-  Map<String, dynamic> toJson() => _$DataToJson(this);
+  Map<String, dynamic> toJson() => _$ProjectToJson(this);
 
 }
 

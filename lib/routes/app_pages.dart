@@ -4,6 +4,7 @@ import 'package:flutter_wanandroid/pages/coin_list/bindings/coin_list_binding.da
 import 'package:flutter_wanandroid/pages/coin_list/views/coin_list_view.dart';
 import 'package:flutter_wanandroid/pages/coin_rank/bindings/coin_rank_binding.dart';
 import 'package:flutter_wanandroid/pages/coin_rank/views/coin_rank_view.dart';
+import 'package:flutter_wanandroid/pages/home/bindings/home_binding.dart';
 import 'package:flutter_wanandroid/pages/login_register/bindings/login_register_binding.dart';
 import 'package:flutter_wanandroid/pages/login_register/views/login_register_view.dart';
 import 'package:flutter_wanandroid/pages/main/bindings/main_binding.dart';
@@ -24,6 +25,7 @@ import '../pages/language/bindings/language_binding.dart';
 import '../pages/language/views/language_view.dart';
 import '../pages/message/bindings/message_binding.dart';
 import '../pages/not_found/not_found_view.dart';
+import '../pages/project/bindings/project_binding.dart';
 import '../pages/theme/bindings/theme_binding.dart';
 import '../pages/theme/views/theme_view.dart';
 
@@ -34,17 +36,24 @@ import '../pages/theme/views/theme_view.dart';
 class AppPages {
   static String init = Routes.main.nameToRoute();
 
-  static final unknownRoute =
-      GetPage(name: Routes.notFound.nameToRoute(), page: () => const NotFound());
+  static final unknownRoute = GetPage(
+      name: Routes.notFound.nameToRoute(), page: () => const NotFound());
 
   static final routes = [
     ///主界面
     GetPage(
-        name: Routes.main.nameToRoute(),
-        page: () => const MainView(),
-        title: Routes.main,
-        bindings: [MainBinding(),NavigationBinding(),MessageBinding()],
-       /// binding: MainBinding()
+      name: Routes.main.nameToRoute(),
+      page: () => const MainView(),
+      title: Routes.main,
+      bindings: [
+        MainBinding(),
+        //HomeBinding(),
+        NavigationBinding(),
+        MessageBinding(),
+        ProjectBinding()
+      ],
+
+      /// binding: MainBinding()
     ),
 
     ///设置页面
@@ -89,17 +98,15 @@ class AppPages {
         title: Routes.coinRank,
         binding: CoinRankBinging()),
     GetPage(
-      name: Routes.articleDetail.nameToRoute(),
-      page: () => const ArticleDetailPage(),
-      title: Routes.articleDetail,
-      binding: ArticleDetailBinding()
-    ),
+        name: Routes.articleDetail.nameToRoute(),
+        page: () => const ArticleDetailPage(),
+        title: Routes.articleDetail,
+        binding: ArticleDetailBinding()),
     GetPage(
         name: Routes.messageWebView.nameToRoute(),
         page: () => const MessageDetailWebPage(),
         title: Routes.messageWebView,
-        binding: MessageDetailWebBinding()
-    ),
+        binding: MessageDetailWebBinding()),
 
     ///金币
     // GetPage(
