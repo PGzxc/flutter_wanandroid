@@ -5,10 +5,10 @@
 
 
 ## 二 开发工具及版本
-* 开发系统：macos 12.3.1
-* 开发工具：Intellij IDEA Community 2021.1
-* Flutter：3.0.0
-* Dart: 2.17.0
+* 开发系统：macos 12.4
+* 开发工具：Intellij IDEA Community 2022.1.1
+* Flutter：3.0.1
+* Dart: 2.17.1
 * .gitignore：使用的Dart类型
 
 ## 三 项目预览
