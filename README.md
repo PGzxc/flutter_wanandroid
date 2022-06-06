@@ -13,6 +13,15 @@
 
 ## 三 项目预览
 
+项目预览
+
+| ![][w-1] | ![][w-2]  | ![][w-3] | ![][w-4] |
+| -------- | --------- | -------- | -------- |
+| ![][w-5] | ![][w-6]  | ![][w-7]| ![][w-8] |
+| ![][w-9] | ![][w-10] | ![][w-11]| ![][w-12]|
+| ![][w-13]| ![][w-14] | ![][w-15]| ![][w-16]|
+
+
 ## 四 版本
 ### v1.0
 * 项目框架搭建(抽屉+BottomBar)
@@ -89,6 +98,24 @@ flutter build apk --split-per-abi
 * flutter_html：https://pub.flutter-io.cn/packages/webview_flutter
 * webview_flutter：https://pub.flutter-io.cn/packages/webview_flutter
 * badges：https://pub.flutter-io.cn/packages/badges
+
+
+[w-1]:https://fastly.jsdelivr.net/gh/PGzxc/CDN@master/blog-resume/w_login.png
+[w-2]:https://fastly.jsdelivr.net/gh/PGzxc/CDN@master/blog-resume/w_register.png
+[w-3]:https://fastly.jsdelivr.net/gh/PGzxc/CDN@master/blog-resume/w_home.png
+[w-4]:https://fastly.jsdelivr.net/gh/PGzxc/CDN@master/blog-resume/w_left_drawer.png
+[w-5]:https://fastly.jsdelivr.net/gh/PGzxc/CDN@master/blog-resume/w_nav_tree.png
+[w-6]:https://fastly.jsdelivr.net/gh/PGzxc/CDN@master/blog-resume/w_nav_site.png
+[w-7]:https://fastly.jsdelivr.net/gh/PGzxc/CDN@master/blog-resume/w_nav_wx.png
+[w-8]:https://fastly.jsdelivr.net/gh/PGzxc/CDN@master/blog-resume/w_nav_project.png
+[w-9]:https://fastly.jsdelivr.net/gh/PGzxc/CDN@master/blog-resume/w_message_unread_list.png
+[w-10]:https://fastly.jsdelivr.net/gh/PGzxc/CDN@master/blog-resume/w_message_read_list.png
+[w-11]:https://fastly.jsdelivr.net/gh/PGzxc/CDN@master/blog-resume/w_me_unlogin.png
+[w-12]:https://fastly.jsdelivr.net/gh/PGzxc/CDN@master/blog-resume/w_me_login.png
+[w-13]:https://fastly.jsdelivr.net/gh/PGzxc/CDN@master/blog-resume/w_coin_rank.png
+[w-14]:https://fastly.jsdelivr.net/gh/PGzxc/CDN@master/blog-resume/w_coin_sigin.png
+[w-15]:https://fastly.jsdelivr.net/gh/PGzxc/CDN@master/blog-resume/w_article_webpage.png
+[w-16]:https://fastly.jsdelivr.net/gh/PGzxc/CDN@master/blog-resume/w_message_webpage.png
 
 
 
