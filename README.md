@@ -78,6 +78,7 @@
 
 依赖库
 
+* 升级依赖库
 * 删除badges
 * 删除flutter_html
 
