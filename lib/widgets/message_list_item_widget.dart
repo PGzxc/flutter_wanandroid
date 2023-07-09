@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_html/flutter_html.dart';
+//import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_wanandroid/models/message_read_list_response.dart';
 import 'package:flutter_wanandroid/pages/message/views/message_detail_web_page.dart';
 import 'package:flutter_wanandroid/provider/base_controller.dart';

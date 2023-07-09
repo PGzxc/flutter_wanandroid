@@ -18,7 +18,8 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.17.0 <3.0.0"
+  #sdk: ">=2.17.0 <3.0.0"
+  sdk: ">=2.17.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -33,43 +34,45 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.4
+  #默认图标资源。项目地址：https://pub-web.flutter-io.cn/packages/cupertino_icons
+  cupertino_icons: ^1.0.5
+
   #依赖项列表
 
   #1-GetX 是Flutter 的一个超轻且强大的解决方案。项目地址：https://github.com/jonataslaw/getx
   get: ^4.6.5
   #2-Logger 小型、易于使用且可扩展的打印漂亮的日志。项目地址：https://pub:flutter-io:cn/packages/logger
-  logger: ^1.1.0
+  logger: ^1.4.0
   # 3-flutter_zoom_drawer，自定义抽屉效果。项目地址：https://pub.flutter-io.cn/packages/flutter_zoom_drawer
   #flutter_zoom_drawer: ^3.0.2 ///使用自带的drawer-参考google-getwidget
   # 4-shared_preferences，简单数据持久化存储。项目地址：https://pub.flutter-io.cn/packages/shared_preferences
-  shared_preferences: ^2.0.15
+  shared_preferences: ^2.1.1
   # 5-connectivity_plus: 网络连接工具。项目地址：https://pub.flutter-io.cn/packages/connectivity_plus
-  connectivity_plus: ^2.3.0
+  connectivity_plus: ^4.0.1
   # 6-:用于数据序列化时使用(给数据类添加注解)，项目地址：https://pub.flutter-io.cn/packages/json_annotation
-  json_annotation: ^4.5.0
+  json_annotation: ^4.8.1
   #7-flutter_easyloading:加载对话框。项目地址：https://pub.flutter-io.cn/packages/flutter_easyloading
   flutter_easyloading: ^3.0.5
   #8-getwidget：google开源的UI Kit工具库，包含1000多个Widget组件。简化开发流程。项目地址：https://pub.flutter-io.cn/packages/getwidget
-  getwidget: ^2.0.5
+  getwidget: ^3.1.1
   #9-flutter_native_splash:启动画面.项目地址：https://pub.flutter-io.cn/packages/flutter_native_splash
-  flutter_native_splash: ^2.2.0
+  flutter_native_splash: ^2.3.1
   #10-flutter_pulltorefresh:下拉刷新，上拉加载。项目地址：https://pub.flutter-io.cn/packages/pull_to_refresh
   pull_to_refresh: ^2.0.0
   #11-lottie:lottie动画。项目地址：https://pub.flutter-io.cn/packages/lottie
-  lottie: ^1.3.0
+  lottie: ^2.4.0
   ## 12-sprintf:字符串格式化。项目地址：https://pub.flutter-io.cn/packages/sprintf
-  sprintf: ^6.0.0
+  sprintf: ^7.0.0
   # 13、shimmer。拉表刷新时，显示前的加载框架。项目地址：https://pub.flutter-io.cn/packages/shimmer
-  shimmer: ^2.0.0
+  shimmer: ^3.0.0
   #14-cached_network_image。带网络缓存带net-image.项目地址：https://pub.flutter-io.cn/packages/cached_network_image
-  cached_network_image: ^3.2.1
+  cached_network_image: ^3.2.3
   #15-flutter_html: 加载html标签 。与flutter_native_splash高版本不兼容。项目地址：https://pub.flutter-io.cn/packages/flutter_html
-  flutter_html: ^2.2.1
+  #flutter_html: ^2.2.1
   #16webview_flutter: flutter中的webview组件。项目地址：https://pub.flutter-io.cn/packages/webview_flutter
   webview_flutter: ^2.0.4
   #17-badges: 带消息带badges。项目地址：https://pub.flutter-io.cn/packages/badges
-  badges: ^2.0.2
+  #badges: ^3.1.1
 
 
 dev_dependencies:
@@ -81,11 +84,11 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^2.0.0
+  flutter_lints: ^2.0.1
   # 1-json_serializable：项目序列化时使用(注解标识)。项目地址：https://pub.flutter-io.cn/packages/json_serializable
-  json_serializable: ^6.2.0
+  json_serializable: ^6.7.0
   #2-build_runner：项目序列化时使用(遇到注解标识，生成对应.g.dart)。项目地址：https://pub.flutter-io.cn/packages/build_runner/install
-  build_runner: ^2.1.11
+  build_runner: ^2.4.5
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

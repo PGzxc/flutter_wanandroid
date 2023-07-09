@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+//import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_wanandroid/i18n/i18n_keys.dart';
 import 'package:flutter_wanandroid/models/home_article_response.dart';
 import 'package:flutter_wanandroid/res/app_theme.dart';
@@ -8,6 +8,9 @@ import 'package:flutter_wanandroid/widgets/popup_window_widget.dart';
 import 'package:flutter_wanandroid/widgets/ripple_view.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/colors/gf_color.dart';
+import 'package:getwidget/components/avatar/gf_avatar.dart';
+import 'package:getwidget/components/image/gf_image_overlay.dart';
+import 'package:getwidget/shape/gf_avatar_shape.dart';
 import '../pages/article_webpage/controllers/article_detail_controller.dart';
 import '../res/r.dart';
 import 'article_detail_app_bar_add_menu.dart';
@@ -200,11 +203,23 @@ class ArticleDetailWebAppBar extends GetView<ArticleDetailController>
             onTap: () => showAddMenu(context, model),
             child: Container(
               padding: const EdgeInsets.all(10),
-              child: SvgPicture.asset(
-                R.assetsSvgShare,
-                width: 24,
-                height: 24,
-              ),
+              child: Image.asset(R.assetsImageShare),
+
+               // const GFAvatar(backgroundImage:AssetImage(R.assetsSvgShare))
+
+              // const GFImageOverlay(
+              //   color: Colors.amber,
+              //   width: 24,
+              //   height: 24,
+              //   //shape: BoxShape.circle,
+              //   image: AssetImage(R.assetsSvgShare),
+              // )
+
+              // SvgPicture.asset(
+              //   R.assetsSvgShare,
+              //   width: 24,
+              //   height: 24,
+              // ),
             ),
           ),
         ],

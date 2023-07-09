@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_html/flutter_html.dart';
+//import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_wanandroid/provider/base_controller.dart';
 import 'package:flutter_wanandroid/res/app_theme.dart';
 import 'package:flutter_wanandroid/routes/app_routes.dart';
@@ -125,18 +125,26 @@ class WXListItemWidget extends GetView<BaseController> {
       children: [
         Visibility(
           visible: dataList[index].title!.isNotEmpty ? true : false,
-          child: Html(
-            data: HtmlUtils.html2HighLight(
-              html: dataList[index].title!,
-              // color: 'yellow',
+          child:Text(
+            dataList[index].title ?? "",
+            style: context.bodyText1Style?.copyWith(
+              fontSize: 15,
             ),
-            style: {
-              'font': Style(
-                fontSize: const FontSize(15),
-                fontWeight: FontWeight.w500,
-              ),
-            },
-          ),
+          )
+
+
+          // Html(
+          //   data: HtmlUtils.html2HighLight(
+          //     html: dataList[index].title!,
+          //     // color: 'yellow',
+          //   ),
+          //   style: {
+          //     'font': Style(
+          //       fontSize: const FontSize(15),
+          //       fontWeight: FontWeight.w500,
+          //     ),
+          //   },
+          // ),
         ),
         Visibility(
           visible: dataList[index].desc!.isNotEmpty ? true : false,

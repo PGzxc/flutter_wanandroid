@@ -1,4 +1,3 @@
-import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_wanandroid/i18n/i18n_keys.dart';
@@ -10,6 +9,8 @@ import 'package:flutter_wanandroid/pages/project/views/project_view.dart';
 import 'package:flutter_wanandroid/provider/base_controller.dart';
 import 'package:flutter_wanandroid/widgets/keep_alive_wrapper.dart';
 import 'package:get/get.dart';
+import 'package:getwidget/components/badge/gf_badge.dart';
+import 'package:getwidget/components/badge/gf_icon_badge.dart';
 import '../../../utils/logger/logger_util.dart';
 import '../../login_register/utils/login_register_utils.dart';
 import '../../me/controllers/me_controller.dart';
@@ -32,7 +33,6 @@ class MainController extends BaseController {
   // final _messageNum=0.obs;
   // set messageNum(value)=>_messageNum.value=value;
   // get messageNum=>_messageNum.value;
-
 
   /// PageView页面控制器
   late PageController pageController;
@@ -68,13 +68,20 @@ class MainController extends BaseController {
 
     /// 初始静态数据
     bottomTabs = <BottomNavigationBarItem>[
-      BottomNavigationBarItem(icon: const Icon(Icons.home_outlined, size: 20,),
+      BottomNavigationBarItem(
+        icon: const Icon(
+          Icons.home_outlined,
+          size: 20,
+        ),
         activeIcon: const Icon(Icons.home, size: 25),
         label: Keys.home.tr,
       ),
       BottomNavigationBarItem(
         icon: const Icon(Icons.outlined_flag_outlined, size: 20),
-        activeIcon: const Icon(Icons.outlined_flag, size: 25,),
+        activeIcon: const Icon(
+          Icons.outlined_flag,
+          size: 25,
+        ),
         label: Keys.navigation.tr,
       ),
       BottomNavigationBarItem(
@@ -83,18 +90,12 @@ class MainController extends BaseController {
         label: Keys.project.tr,
       ),
       BottomNavigationBarItem(
-        icon:Obx(() =>  Badge(
-          showBadge: messageNum>0,
-          badgeColor: Colors.red,
-          badgeContent: Text("$messageNum"),
-          child: const Icon(Icons.message_outlined,size: 20,),
-        )),
-        activeIcon:Obx(() =>  Badge(
-          showBadge: messageNum>0,
-          badgeColor: Colors.red,
-          badgeContent: Text("$messageNum"),
-          child: const Icon(Icons.message, size:25),
-        )),
+        icon: Obx(() => GFIconBadge(
+            counterChild: messageNum>0? GFBadge(color: Colors.red, text: "$messageNum"):const Text(""),
+            child: const Icon(Icons.message_outlined, size: 20))),
+        activeIcon: Obx(() => GFIconBadge(
+            counterChild: messageNum>0? GFBadge(color: Colors.red, text: "$messageNum"):const Text(""),
+            child: const Icon(Icons.message, size: 25))),
         label: Keys.message.tr,
       ),
       BottomNavigationBarItem(
@@ -145,7 +146,6 @@ class MainController extends BaseController {
       const KeepAliveWrapper(keepAlive: true, child: MessageView()),
       const KeepAliveWrapper(keepAlive: true, child: MeView()),
     ];
-
   }
 
   ///在 onInit() 之后调用 1 帧。这是进入的理想场所
@@ -155,8 +155,8 @@ class MainController extends BaseController {
     super.onReady();
     // async 拉取数据
     LoggerUtil.d('onReady()', tag: 'MainController');
-    if(isLogin){
-      userInfo=LoginRegisterUtils.getUserInfo();
+    if (isLogin) {
+      userInfo = LoginRegisterUtils.getUserInfo();
     }
   }
 
@@ -188,7 +188,7 @@ class MainController extends BaseController {
     EasyLoading.show(status: '加载中...');
     provider.logout().then((value) {
       if (value.success) {
-        isLogin=false;
+        isLogin = false;
         Get.back();
       } else {
         EasyLoading.showError('退出出错:${value.errorMsg}');

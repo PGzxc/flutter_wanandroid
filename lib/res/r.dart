@@ -25,6 +25,7 @@ class R {
 
   /// SVG
   static const String assetsSvgShare = 'assets/svg/share.svg';
+  static const String assetsImageShare = 'assets/images/ic_share.png';
 
   /// png
   static const String iconInvertedTriangle =
