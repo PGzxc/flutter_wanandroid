@@ -75,12 +75,11 @@ class _ArticleDetailAppBarAddMenuState extends State<ArticleDetailAppBarAddMenu>
             icon: const Icon(Icons.refresh),
             label: const Text('刷新页面'),
             style: TextButton.styleFrom(
-              primary: Theme.of(context).textTheme.bodyText2?.color,
-              onSurface: Theme.of(context)
+              foregroundColor: Theme.of(context).textTheme.bodyMedium?.color, disabledForegroundColor: Theme.of(context)
                   .textTheme
-                  .bodyText2
+                  .bodyMedium
                   ?.color
-                  ?.withOpacity(0.12),
+                  ?.withOpacity(0.12).withOpacity(0.38),
               backgroundColor: backgroundColor,
               shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
@@ -109,12 +108,11 @@ class _ArticleDetailAppBarAddMenuState extends State<ArticleDetailAppBarAddMenu>
                 : const Icon(Icons.favorite_border),
             label: const Text('收藏文章'),
             style: TextButton.styleFrom(
-              primary: Theme.of(context).textTheme.bodyText2?.color,
-              onSurface: Theme.of(context)
+              foregroundColor: Theme.of(context).textTheme.bodyMedium?.color, disabledForegroundColor: Theme.of(context)
                   .textTheme
-                  .bodyText2
+                  .bodyMedium
                   ?.color
-                  ?.withOpacity(0.12),
+                  ?.withOpacity(0.12).withOpacity(0.38),
               backgroundColor: backgroundColor,
               shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
@@ -137,12 +135,11 @@ class _ArticleDetailAppBarAddMenuState extends State<ArticleDetailAppBarAddMenu>
             icon: const Icon(Icons.collections),
             label: const Text('收藏网址'),
             style: TextButton.styleFrom(
-              primary: Theme.of(context).textTheme.bodyText2?.color,
-              onSurface: Theme.of(context)
+              foregroundColor: Theme.of(context).textTheme.bodyMedium?.color, disabledForegroundColor: Theme.of(context)
                   .textTheme
-                  .bodyText2
+                  .bodyMedium
                   ?.color
-                  ?.withOpacity(0.12),
+                  ?.withOpacity(0.12).withOpacity(0.38),
               backgroundColor: backgroundColor,
               shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(

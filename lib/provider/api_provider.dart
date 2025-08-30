@@ -12,7 +12,7 @@ import 'package:get/get.dart';
 import 'base_api_services.dart';
 import 'error_handler.dart';
 
-class ApiProvider extends GetConnect with BaseApiServices {
+class ApiProvider extends GetConnect implements BaseApiServices {
   static const String _API_KEY = '595a430e1e364be4952d4ceba47f6db1';
 
   // static final ApiProvider _singleton = ApiProvider._internal();

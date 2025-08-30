@@ -16,21 +16,21 @@ class LoggerUtil {
   /// 调试
   LoggerUtil.d(dynamic d, {dynamic tag}) {
     if (Config.isDebug) {
-      Logger().d(d, tag);
+      Logger().d(d);
     }
   }
 
   /// 信息
   LoggerUtil.i(dynamic i, {dynamic tag}) {
     if (Config.isDebug) {
-      Logger().i(i, tag);
+      Logger().i(i);
     }
   }
 
   /// 错误
   LoggerUtil.e(dynamic e, {dynamic tag}) {
     if (Config.isDebug) {
-      Logger().e(e, tag);
+      Logger().e(e);
     }
   }
 

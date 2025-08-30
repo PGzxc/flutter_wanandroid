@@ -1,6 +1,7 @@
 import 'package:flutter_wanandroid/provider/base_controller.dart';
 import 'package:get/get.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+//import 'package:webview_flutter/webview_flutter.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'dart:async';
 import 'dart:io';
 
@@ -16,8 +17,8 @@ class MessageDetailWebController extends BaseController{
   get unCollectAnimation => _unCollectAnimation.value;
   set unCollectAnimation(value) => _unCollectAnimation.value = value;
 
-  late WebViewController webViewController;
-
+  //late WebViewController webViewController;
+  late InAppWebViewController webViewController;
   /////进度条
   final _webProgress = 0.0.obs;
   get webProgress => _webProgress.value;
@@ -40,9 +41,9 @@ class MessageDetailWebController extends BaseController{
   @override
   void onInit() {
     super.onInit();
-    if (Platform.isAndroid) {
-      WebView.platform = SurfaceAndroidWebView();
-    }
+    // if (Platform.isAndroid) {
+    //   WebView.platform = SurfaceAndroidWebView();
+    // }
   }
 
   /// WebView加载页面进度
@@ -52,7 +53,7 @@ class MessageDetailWebController extends BaseController{
   }
 
   //WebView创建时回调
-  Future<void> onWebViewCreated(WebViewController controller) async {
+  Future<void> onWebViewCreated(InAppWebViewController controller) async {
     //WebView控制器，通过WebViewController可以实现Web内的前进、后退等操作
     webViewController = controller;
   }

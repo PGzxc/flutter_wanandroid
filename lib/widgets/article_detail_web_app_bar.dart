@@ -48,7 +48,7 @@ class ArticleDetailWebAppBar extends GetView<ArticleDetailController>
   // 定义了一个GlobalKey并传递给Widget1，然后我们便可以通过这个key拿到它所绑定的SwitcherWidgetState并在外部调用SwitcherWidgetState的changeState方法改变状态了
   final GlobalKey _addKey = GlobalKey();
 
-  final detailController = Get.find<ArticleDetailController>();
+  var detailController = Get.find<ArticleDetailController>();
 
   @override
   Widget build(BuildContext context) {

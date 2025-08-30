@@ -9,7 +9,7 @@ enum ConnectivityState { mobile, ethernet, wifi, none }
 class ConnectivityUtils {
   /// 检查当前状态
   static Future<ConnectivityState> checkConnectivity() async {
-    late ConnectivityState state;
+    late ConnectivityState state = ConnectivityState.none; // 提供默认值
 
     var connectivityResult = await (Connectivity().checkConnectivity());
     if (connectivityResult == ConnectivityResult.mobile) {

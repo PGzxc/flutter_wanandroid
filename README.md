@@ -26,17 +26,17 @@
 
 
 ## 四 版本
-### v1.0
+### v1.0(2022-6-16)
 * 项目框架搭建(抽屉+BottomBar)
 * 抽屉显示快捷信息
 * BottomBar：显示导航信息
 
-### v2.0
+### v2.0(2022-6-19)
 * 添加设置页面
 * 添加切换主题和语言功能
 * 添加shared_preferences工具库
 
-### v3.0
+### v3.0(2022-6-28)
 * 使用GetConnect搭建网络访问框架，使用baseResponse进行结果解析
 * 接口返回的结果，使用https://caijinglong.github.io/json2dart/index.html快速生成，放到models包中
 * 登陆注册界面及功能完成
@@ -45,7 +45,7 @@
 * 删除之前到flutter_zoom_drawer，使用google自带的drawer
 * 列表项需要缓存，只需要使用 KeepAliveWrapper包裹，防止多次加载
 
-### v4.0
+### v4.0(2022-6-30)
 * 对网络访进一步封装。网络访问前对设置使用ApiProvider(比如过期时间、拦截器、Cookie...)
 * 进行网络访问时，通过httpManager，其中对网络访问通过ApiProvider调用get/post等相应等方法
 * 根据BaseResponse中errorCode判断，分别返回success、fail、error等数据结果
@@ -56,22 +56,22 @@
 * Drawer抽屉添加，点击头像登陆和登陆后退出功能
 * 修改安卓和IOS应用显示等名称
 * 未登录时，不显示退出按钮。登陆后，显示退出按钮
-### v5.0
+### v5.0(2022-7-02)
 * 使用google组件carousel显示首页轮播图
 * 首页文章显示
 * 使用三方库webview_flutter，显示网页视图
 * 使用三方库badges。显示bottombar带消息的数量，并通过num控制badges的显示与否
-### v6.0
+### v6.0(2022-7-04)
 * 使用google-GFSegmentTab，将导航分为：体系，常用网站，公众号三个Tab部分
 * 使用google-Stick-header，构建体系页面
 * 导航-体系/常用网站/公众号完成
-### v7.0
+### v7.0(2022-7-05)
 * 使用google-GFSegmentTab，将导航分为：未读消息和已读消息两个部分
 * 填充：未读消息和已读消息列表
 * 在BaseController中根据用户是否已经登陆请求数据接口，展示消息数据
 * 将MessageControlLer中读取未读消息的数据，移动到未读消息控制器中，在数据请求到同时调用此接口
 
-### v8.0
+### v8.0(2022-7-06)
 * 项目分类、项目列表数据
 
 ### v9.0—2023年07月09日升级说明
@@ -88,6 +88,13 @@
 * Flutter：3.10.5
 * Dart：3.0.5
 
+### v10.0—2025年08月30日
+
+```
+版本升级：flutter版本：3.0.0——> 3.35.2
+兼容性升级，暂无功能修改
+```
+
 
 ## 五 使用的指令
 ### 5.1 splash更新
@@ -99,7 +106,53 @@ flutter pub run build_runner build
 ### 5.3 项目打包输出
 flutter build apk --split-per-abi
 
-## 六 开源库
+## 六 版本升级
+
+### 6.1 完成版本(2022年07月06日)
+
+### 6.2 升级版本1(2025年08月30)
+
+1、版本升级
+
+```
+1、编译版本
+ -dart sdk版本: 2.17.0——>3.9.0
+ -flutter版本：3.0.0——> 3.35.2
+ 
+2、更新packages
+ flutter pub upgrade
+ flutter pub upgrade --major-versions
+
+3、兼容及库替换
+ webview_flutter替换为flutter_inappwebview
+ 
+ 
+4、删除之前的项目，重新生成
+ 删除项目：android、ios、linux、macos、web、windows
+ 执行:flutter create .
+```
+
+2、生成各客户端
+
+```
+1、Android 打包各架构：
+ flutter build apk --release --split-per-abi
+ 
+2、打包 Windows 客户端
+ 生成windows-release端：flutter build windows --release
+ 使用Inno Setup生成安装程序
+```
+
+3、说明
+
+```
+1、用android studio打开Android项目有可能会因兼容和依赖：运行会出错
+2、IDE直接运行模拟器可能闪退
+3、用IDE打包后，导入模拟器可运行
+```
+
+## 七 开源库
+
 * Getx:https://github.com/jonataslaw/getx
 * logger: https://pub:flutter-io:cn/packages/logger
 * flutter_zoom_drawer:https://pub.flutter-io.cn/packages/flutter_zoom_drawer

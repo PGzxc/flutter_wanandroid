@@ -16,7 +16,7 @@ ThemeData lightTheme = ThemeData.light().copyWith(
     iconTheme: const IconThemeData(color: Colors.black),
   ),
   scaffoldBackgroundColor: ThemeData.light().scaffoldBackgroundColor,
-  backgroundColor: Colors.white,
+  //backgroundColor: Colors.white,
   iconTheme: const IconThemeData(
     color: AppColors.iconLightColor,
   ),
@@ -53,7 +53,7 @@ ThemeData darkTheme = ThemeData.dark().copyWith(
     iconTheme: const IconThemeData(color: Colors.white),
   ),
   scaffoldBackgroundColor: ThemeData.dark().scaffoldBackgroundColor,
-  backgroundColor: Colors.black12,
+  //backgroundColor: Colors.black12,
   iconTheme: const IconThemeData(
     color: AppColors.iconDarkColor,
   ),
@@ -95,7 +95,7 @@ extension ThemeExtension on BuildContext {
 
   Color get scaffoldBackgroundColor => Theme.of(this).scaffoldBackgroundColor;
 
-  Color get backgroundColor => Theme.of(this).backgroundColor;
+  Color get backgroundColor => Theme.of(this).colorScheme.surface;
 
   Color? get appBarBackgroundColor =>
       Theme.of(this).appBarTheme.backgroundColor;
@@ -106,15 +106,15 @@ extension ThemeExtension on BuildContext {
 
   Color get dialogBackgroundColor => Theme.of(this).canvasColor;
 
-  Color? get headline1Color => Theme.of(this).textTheme.headline1?.color;
+  Color? get headline1Color => Theme.of(this).textTheme.displayLarge?.color;
 
-  Color? get subtitle1Color => Theme.of(this).textTheme.subtitle1?.color;
+  Color? get subtitle1Color => Theme.of(this).textTheme.titleMedium?.color;
 
-  Color? get subtitle2Color => Theme.of(this).textTheme.subtitle2?.color;
+  Color? get subtitle2Color => Theme.of(this).textTheme.titleSmall?.color;
 
-  Color? get bodyText1Color => Theme.of(this).textTheme.bodyText1?.color;
+  Color? get bodyText1Color => Theme.of(this).textTheme.bodyLarge?.color;
 
-  Color? get bodyText2Color => Theme.of(this).textTheme.bodyText2?.color;
+  Color? get bodyText2Color => Theme.of(this).textTheme.bodyMedium?.color;
 
   Color? get iconDataColor => Theme.of(this).iconTheme.color;
 
@@ -133,23 +133,23 @@ extension ThemeExtension on BuildContext {
 }
 
 extension StyleExtension on BuildContext {
-  TextStyle? get headline1Style => Theme.of(this).textTheme.headline1;
+  TextStyle? get headline1Style => Theme.of(this).textTheme.displayLarge;
 
-  TextStyle? get headline2Style => Theme.of(this).textTheme.headline2;
+  TextStyle? get headline2Style => Theme.of(this).textTheme.displayMedium;
 
-  TextStyle? get headline3Style => Theme.of(this).textTheme.headline3;
+  TextStyle? get headline3Style => Theme.of(this).textTheme.displaySmall;
 
-  TextStyle? get headline4Style => Theme.of(this).textTheme.headline4;
+  TextStyle? get headline4Style => Theme.of(this).textTheme.headlineMedium;
 
-  TextStyle? get headline5Style => Theme.of(this).textTheme.headline5;
+  TextStyle? get headline5Style => Theme.of(this).textTheme.headlineSmall;
 
-  TextStyle? get headline6Style => Theme.of(this).textTheme.headline6;
+  TextStyle? get headline6Style => Theme.of(this).textTheme.titleLarge;
 
-  TextStyle? get subtitle1Style => Theme.of(this).textTheme.subtitle1;
+  TextStyle? get subtitle1Style => Theme.of(this).textTheme.titleMedium;
 
-  TextStyle? get subtitle2Style => Theme.of(this).textTheme.subtitle2;
+  TextStyle? get subtitle2Style => Theme.of(this).textTheme.titleSmall;
 
-  TextStyle? get bodyText1Style => Theme.of(this).textTheme.bodyText1;
+  TextStyle? get bodyText1Style => Theme.of(this).textTheme.bodyLarge;
 
-  TextStyle? get bodyText2Style => Theme.of(this).textTheme.bodyText2;
+  TextStyle? get bodyText2Style => Theme.of(this).textTheme.bodyMedium;
 }

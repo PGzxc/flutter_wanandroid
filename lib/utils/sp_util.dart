@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'logger/logger_util.dart';
 
 class SpUtil {
@@ -27,7 +26,7 @@ class SpUtil {
       case double:
         isSuccess = await prefs.setDouble(key, value as double);
         break;
-      case List<String>:
+      case const (List<String>):
         isSuccess = await prefs.setStringList(key, value as List<String>);
         break;
     }
@@ -51,7 +50,7 @@ class SpUtil {
       case double:
         res = prefs.getDouble(key) as T?;
         break;
-      case List<String>:
+      case const (List<String>):
         res = prefs.getStringList(key) as T?;
         break;
     }

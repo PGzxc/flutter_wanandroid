@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_wanandroid/models/message_read_list_response.dart';
 import 'package:flutter_wanandroid/pages/message/controllers/message_detail_web_controller.dart';
 import 'package:get/get.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+//import 'package:webview_flutter/webview_flutter.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import '../../../res/app_color.dart';
 
 /// 描述: 消息Web页面
@@ -34,38 +35,44 @@ class MessageDetailWebPage extends GetView<MessageDetailWebController> {
     }
     return Stack(
       children: [
-        WebView(
-          allowsInlineMediaPlayback: true,
-          zoomEnabled: true,
-          // 默认禁止js
-          javascriptMode: JavascriptMode.unrestricted,
-          // 初始url
-          initialUrl: url,
-          gestureNavigationEnabled: true,
-          onWebViewCreated: (webController) {
-            controller.onWebViewCreated(webController);
-          },
-          // 页面开始加载时
-          onPageStarted: (String url) async {
-            controller.onPageStarted(url, model.link);
-          },
-          onProgress: (int progress) {
-            // WebView加载页面进度
-            controller.updateWebProgress(progress);
-          },
-          onPageFinished: (url) async {
-            controller.onPageFinished(url, model.link);
-          },
-          navigationDelegate: (NavigationRequest request) {
-            if (!request.url.contains('http')) {
-              return NavigationDecision.prevent;
-            }
-            return NavigationDecision.navigate;
-          },
-          onWebResourceError: (WebResourceError error) {
-            controller.onWebResourceError(error, url, model.link);
+        InAppWebView(
+          onWebViewCreated: (controller) async {
+            this.controller.webViewController = controller;
+            await controller.loadUrl(urlRequest: URLRequest(url: WebUri(url)));
           },
         ),
+        // WebView(
+        //   allowsInlineMediaPlayback: true,
+        //   zoomEnabled: true,
+        //   // 默认禁止js
+        //   javascriptMode: JavascriptMode.unrestricted,
+        //   // 初始url
+        //   initialUrl: url,
+        //   gestureNavigationEnabled: true,
+        //   onWebViewCreated: (webController) {
+        //     controller.onWebViewCreated(webController);
+        //   },
+        //   // 页面开始加载时
+        //   onPageStarted: (String url) async {
+        //     controller.onPageStarted(url, model.link);
+        //   },
+        //   onProgress: (int progress) {
+        //     // WebView加载页面进度
+        //     controller.updateWebProgress(progress);
+        //   },
+        //   onPageFinished: (url) async {
+        //     controller.onPageFinished(url, model.link);
+        //   },
+        //   navigationDelegate: (NavigationRequest request) {
+        //     if (!request.url.contains('http')) {
+        //       return NavigationDecision.prevent;
+        //     }
+        //     return NavigationDecision.navigate;
+        //   },
+        //   onWebResourceError: (WebResourceError error) {
+        //     controller.onWebResourceError(error, url, model.link);
+        //   },
+        // ),
         Obx(() {
           // WebView加载页面进度
           return Visibility(

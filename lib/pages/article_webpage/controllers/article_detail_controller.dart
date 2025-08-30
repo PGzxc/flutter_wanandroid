@@ -8,7 +8,8 @@ import 'package:flutter_wanandroid/provider/request_api.dart';
 import 'package:flutter_wanandroid/routes/app_routes.dart';
 import 'package:get/get.dart';
 import 'package:sprintf/sprintf.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+//import 'package:webview_flutter/webview_flutter.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import '../../../res/constant.dart';
 import '../../../utils/logger/logger_util.dart';
 
@@ -28,7 +29,8 @@ class ArticleDetailController extends BaseController {
   get unCollectAnimation => _unCollectAnimation.value;
   set unCollectAnimation(value) => _unCollectAnimation.value = value;
 
-  late WebViewController webViewController;
+  //late WebViewController webViewController;
+  late InAppWebViewController webViewController;
 
   /////进度条
   final _webProgress = 0.0.obs;
@@ -52,9 +54,9 @@ class ArticleDetailController extends BaseController {
   @override
   void onInit() {
     super.onInit();
-    if (Platform.isAndroid) {
-      WebView.platform = SurfaceAndroidWebView();
-    }
+    // if (Platform.isAndroid) {
+    //   WebView.platform = SurfaceAndroidWebView();
+    // }
   }
 
   /// WebView加载页面进度
@@ -64,13 +66,14 @@ class ArticleDetailController extends BaseController {
   }
 
   //WebView创建时回调
-  Future<void> onWebViewCreated(WebViewController controller) async {
+  Future<void> onWebViewCreated(InAppWebViewController controller) async {
     //WebView控制器，通过WebViewController可以实现Web内的前进、后退等操作
     webViewController = controller;
   }
 
   void reloadWebView() {
     // 刷新页面
+    //webViewController.reload();
     webViewController.reload();
   }
 
@@ -99,7 +102,7 @@ class ArticleDetailController extends BaseController {
     LoggerUtil.d('==========> onWebResourceError1 当前页面链接: $url');
     LoggerUtil.d('==========> onWebResourceError2 原文链接: $link');
     LoggerUtil.d(
-        '==========> onWebResourceError3 ${error.description}  ${error.errorType}  ${error.failingUrl}');
+        '==========> onWebResourceError3 ${error.description}  ${error.type}');
   }
 
   Future<bool> onWillPop() async {
